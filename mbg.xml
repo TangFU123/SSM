@@ -41,6 +41,6 @@
     </javaClientGenerator>
 
 <!-- 指定生成策略 -->
-    <table tableName="customer" domainObjectName="Customer"></table>
+    <table tableName="room" domainObjectName="Room"></table>
   </context>
 </generatorConfiguration>
