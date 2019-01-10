@@ -51,12 +51,16 @@
 
 <form action="register" method="post">
   <div class="form-group">
-    <label for="exampleInputEmail1">账号</label>
-    <input name="name" class="form-control"  placeholder="请输入账号" >
+    <label for="exampleInputAccount1">账号</label>
+    <input name="account" class="form-control"  placeholder="请输入注册的账号" >
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input name="password" type="password" class="form-control"  placeholder="请输入密码">
+    <input name="password" type="password" class="form-control"  placeholder="请输入注册的密码">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputNumber1">Number</label>
+    <input name="number" class="form-control"  placeholder="请输入注册的电话">
   </div>
 
   <button type="submit" class="btn btn-default">注册</button>

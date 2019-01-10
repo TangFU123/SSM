@@ -37,8 +37,7 @@
 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 <property name="basePackage" value="com.t2.dao"></property>
 </bean>
-
-
+<bean id="CustomerService" class="com.t2.service.CustomerServiceImpl"></bean>
 
 </beans>
 

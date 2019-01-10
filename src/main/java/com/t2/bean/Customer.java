@@ -3,7 +3,13 @@ package com.t2.bean;
 import java.util.Date;
 
 public class Customer {
-    private Integer id;
+    @Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", account=" + account + ", password=" + password + ", rid="
+				+ rid + ", interdate=" + interdate + ", number=" + number + "]";
+	}
+
+	private Integer id;
 
     private String name;
 
