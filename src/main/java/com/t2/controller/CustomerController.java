@@ -29,13 +29,13 @@ public class CustomerController {
 		if(list.size() >= 1) {
 			//System.out.println("账号已存在");
 			JOptionPane.showMessageDialog(null, "账号已存在");
-			ModelAndView mav = new ModelAndView(REGISTER);
+			ModelAndView mav = new ModelAndView(LOGIN);
 			return mav;
 		}
 		else if(list1.size() >= 1) {
 			//System.out.println("电话已存在");
 			JOptionPane.showMessageDialog(null, "电话已存在");
-			ModelAndView mav = new ModelAndView(REGISTER);
+			ModelAndView mav = new ModelAndView(LOGIN);
 			return mav;
 		}
 		else {
