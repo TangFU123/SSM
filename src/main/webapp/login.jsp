@@ -66,5 +66,17 @@
   <button type="submit" class="btn btn-default">注册</button>
 </form>
 
+<form action="login" method="post">
+  <div class="form-group">
+    <label for="exampleInputAccount1">账号</label>
+    <input name="account" class="form-control"  placeholder="请输入注账号" >
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input name="password" type="password" class="form-control"  placeholder="请输入密码">
+  </div>
+  <button type="submit" class="btn btn-default">登录</button>
+</form>
+
 </body>
 </html>
