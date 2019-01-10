@@ -22,8 +22,8 @@ public class CustomerController {
 	private static final String ERROR = "error";
 	@RequestMapping("register")
 	public ModelAndView register(Customer customer){
-		System.out.println("¼¦¹Ç²Ý");
-		System.out.println(customer);
+		//System.out.println("¼¦¹Ç²Ý");
+		//System.out.println(customer);
 		List<Customer> list = customerService.selectCustomerByAccountExample(customer);
 		List<Customer> list1 = customerService.selectCustomerByNumberExample(customer);
 		if(list.size() >= 1) {
