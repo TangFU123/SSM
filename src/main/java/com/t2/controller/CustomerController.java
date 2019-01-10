@@ -18,7 +18,7 @@ public class CustomerController {
 	CustomerService customerService;
 	private static final String REGISTER = "register";
 	private static final String LOGIN = "login";
-	private static final String MAIN = "main";
+	private static final String MAIN = "index";
 	private static final String ERROR = "error";
 	@RequestMapping("register")
 	public ModelAndView register(Customer customer){

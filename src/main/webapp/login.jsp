@@ -2,81 +2,73 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
+<!-- Head -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>register</title>
-<link href="static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript" src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+<title>登录注册表单</title>
+
+<!-- Meta-Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script type="application/x-javascript">
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+</script>
+<!-- //Meta-Tags -->
+
+<!-- Style -->
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
 
 </head>
+<!-- //Head -->
+
+<!-- Body -->
 <body>
 
-<button class="btn btn-danger">枪炮与玫瑰</button>
+	<h1>登录注册表单</h1>
 
-<img alt="dimebag" src="static/img/dimebag.jpg" class="img-rounded" style="width:150px;height:150px">
+	<div class="container w3layouts agileits">
 
-<table class="table table-hover">
-<tr>
-<td>编号</td>
-<td>姓名</td>
-<td>密码</td>
-</tr>
-<tr>
-<td>1</td>
-<td>aaa</td>
-<td>111</td>
-</tr>
-<tr>
-<td>1</td>
-<td>aaa</td>
-<td>111</td>
-</tr>
-<tr>
-<td>1</td>
-<td>aaa</td>
-<td>111</td>
-</tr>
-<tr>
-<td>1</td>
-<td>aaa</td>
-<td>111</td>
-</tr>
-<tr>
-<td>1</td>
-<td>aaa</td>
-<td>111</td>
-</tr>
-</table>
+		<div class="login w3layouts agileits">
+			<h2>登 录</h2>
+			<form action="login" method="post">
+				<input type="text" Name="account" placeholder="用户名" required="">
+				<input type="password" Name="Password" placeholder="密码" required="">
+				<div class="send-button w3layouts agileits">
 
+					<a href="login"><input type="submit"  value="登 录"></a>
 
-<form action="register" method="post">
-  <div class="form-group">
-    <label for="exampleInputAccount1">账号</label>
-    <input name="account" class="form-control"  placeholder="请输入注册的账号" >
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input name="password" type="password" class="form-control"  placeholder="请输入注册的密码">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputNumber1">Number</label>
-    <input name="number" class="form-control"  placeholder="请输入注册的电话">
-  </div>
+			</div>
+			</form>
+			
+			<div class="clear"></div>
+		</div>
+		<div class="register w3layouts agileits">
+		
+		
+			<h2>注 册</h2>
+			<form action="register" method="post">
+				<input type="text" Name="account" placeholder="用户名" required="">
 
-  <button type="submit" class="btn btn-default">注册</button>
-</form>
+				<input type="password" Name="password" placeholder="密码" required="">
+				<input type="text" Name="number" placeholder="手机号码"
+					required="">
+			<div class="send-button w3layouts agileits">
+			
+					<input type="submit" value="免费注册">
+				
+			</div>
+			</form>
+			
+			<div class="clear"></div>
+		</div>
 
-<form action="login" method="post">
-  <div class="form-group">
-    <label for="exampleInputAccount1">账号</label>
-    <input name="account" class="form-control"  placeholder="请输入注账号" >
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input name="password" type="password" class="form-control"  placeholder="请输入密码">
-  </div>
-  <button type="submit" class="btn btn-default">登录</button>
-</form>
+		<div class="clear"></div>
+
+	</div>
 
 </body>
+<!-- //Body -->
+
 </html>

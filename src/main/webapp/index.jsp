@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
@@ -111,7 +113,7 @@
 								<a href="gallery.html" title="画廊" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">照片廊</a>
 								<i class="ddl-switch fa fa-angle-down"></i>
 							</li>
-							<li><a title="登陆/注册" href="login.html">登陆/注册</a></li>							
+							<li><a title="登陆/注册" href="login.jsp">登陆/注册</a></li>							
 						</ul>						
 					</div>
 				</nav><!-- Navigation -->
