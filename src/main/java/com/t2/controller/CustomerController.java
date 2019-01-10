@@ -25,7 +25,11 @@ public class CustomerController {
 		//System.out.println("º¶π«≤›");
 		//System.out.println(customer);
 		List<Customer> list = customerService.selectCustomerByAccountExample(customer);
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i).getPassword());
+		}
 		List<Customer> list1 = customerService.selectCustomerByNumberExample(customer);
+		//System.out.println(customer);
 		if(list.size() >= 1) {
 			//System.out.println("’À∫≈“—¥Ê‘⁄");
 			JOptionPane.showMessageDialog(null, "’À∫≈“—¥Ê‘⁄");
@@ -51,7 +55,7 @@ public class CustomerController {
 	public ModelAndView selectCustomerByAccountExample(Customer customer){
 		List<Customer> list = customerService.selectCustomerByAccountExample(customer);
 		for(int i=0;i<list.size();i++){
-			System.out.println(list.get(i));
+			System.out.println(list.get(i).getPassword());
 		}
 		
 		ModelAndView mav = new ModelAndView(MAIN);
@@ -66,6 +70,24 @@ public class CustomerController {
 		
 		ModelAndView mav = new ModelAndView(MAIN);
 		return mav;
+	}
+	@RequestMapping("login")
+	public ModelAndView login(Customer customer) {
+		List<Customer> list = customerService.selectCustomerByAccountExample(customer);
+		//System.out.println(list.size()+customer.getPassword()+","+list.get(0).getPassword());
+		if(list.size() >= 1 && list.get(0).getPassword().equals(customer.getPassword())) {
+			//System.out.println(list.size()+customer.getPassword()+","+list.get(0).getPassword());
+			ModelAndView mav = new ModelAndView(MAIN);
+			return mav;
+		}else {
+			JOptionPane.showMessageDialog(null, "’À∫≈ªÚ√‹¬Î¥ÌŒÛ");
+			ModelAndView mav = new ModelAndView(LOGIN);
+			return mav;
+			
+		}
+		
+		
+		
 	}
 		
 		
