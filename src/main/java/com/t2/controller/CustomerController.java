@@ -2,6 +2,8 @@ package com.t2.controller;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +16,7 @@ import com.t2.service.CustomerService;
 public class CustomerController {
 	@Autowired
 	CustomerService customerService;
-	
+	private static final String REGISTER = "register";
 	private static final String LOGIN = "login";
 	private static final String MAIN = "main";
 	private static final String ERROR = "error";
@@ -23,21 +25,26 @@ public class CustomerController {
 		System.out.println("鸡骨草");
 		System.out.println(customer);
 		List<Customer> list = customerService.selectCustomerByAccountExample(customer);
-		if(list.size() >= 1) {
-			System.out.println("账号已存在");
-			ModelAndView mav = new ModelAndView(ERROR);
-			return mav;
-		}
 		List<Customer> list1 = customerService.selectCustomerByNumberExample(customer);
-		if(list1.size() >= 1) {
-			System.out.println("电话已存在");
-			ModelAndView mav = new ModelAndView(ERROR);
+		if(list.size() >= 1) {
+			//System.out.println("账号已存在");
+			JOptionPane.showMessageDialog(null, "账号已存在");
+			ModelAndView mav = new ModelAndView(REGISTER);
 			return mav;
 		}
-		int num=customerService.register(customer);
-		System.out.println("num="+num);
-		ModelAndView mav = new ModelAndView(LOGIN);
-		return mav;
+		else if(list1.size() >= 1) {
+			//System.out.println("电话已存在");
+			JOptionPane.showMessageDialog(null, "电话已存在");
+			ModelAndView mav = new ModelAndView(REGISTER);
+			return mav;
+		}
+		else {
+			int num=customerService.register(customer);
+			//System.out.println("num="+num);
+			JOptionPane.showMessageDialog(null, "注册成功!");
+			ModelAndView mav = new ModelAndView(LOGIN);
+			return mav;
+		}
 	}
 	
 	@RequestMapping("selectCustomerByAccountExample")
