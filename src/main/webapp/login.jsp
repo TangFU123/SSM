@@ -20,6 +20,103 @@
 <!-- Style -->
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
 
+<!--  导入js-->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- 写jq函数 -->
+<script type="text/javascript">
+	
+	//注册
+	function check(){
+		var account=document.register.account.value;
+		var password=document.register.password.value;
+		var number=document.register.number.value;		
+		var customer = { 
+    			account : account,
+		        password:password,
+				number:number
+			};
+		$.ajax({
+			//设置发送地址
+			url:"http://localhost:8080/ssm_206_01/register",
+			//设置发送方式
+			type:"post",
+			 //设置接收格式为JSON
+            dataType:"json",
+            //编码设置
+            contentType:"application/json;charset=utf-8",
+            //向后台发送的数据
+            data:JSON.stringify(customer),
+			success:function(data){
+				//json转string
+				var jsonStr = JSON.stringify(data);
+				//string转json
+				var json = eval("("+jsonStr+")");
+				
+				if(json.result=="0"){
+					document.getElementById("rgsmsg").innerHTML="用户名已存在!";
+					
+				}
+				else if(json.result=="1"){
+					document.getElementById("rgsmsg").innerHTML="联系电话已存在!";
+					
+				}
+				else{
+					document.getElementById("rgsmsg").innerHTML="注册成功!";
+				}				
+			},
+			error:function(){				
+			}			
+		});
+		return false;
+	}
+	
+	//登录
+	function log(){
+		
+		var account=document.login.account.value;
+		var password=document.login.password.value;
+			
+		var customer = { 
+    			account : account,
+		        password:password,
+			};
+		
+		$.ajax({
+			//设置发送地址
+			url:"http://localhost:8080/ssm_206_01/login",
+			//设置发送方式
+			type:"post",
+			 //设置接收格式为JSON
+            dataType:"json",
+            //编码设置
+            contentType:"application/json;charset=utf-8",
+            //向后台发送的数据
+            data:JSON.stringify(customer),
+			success:function(data){
+				//json转string
+				var jsonStr = JSON.stringify(data);
+				//string转json
+				var json = eval("("+jsonStr+")");
+				
+				if(json.result=="1"){
+				
+					document.getElementById("logmsg").innerHTML="登录失败，用户名或密码错误!";
+					
+				}
+				else{
+				
+					document.getElementById("logmsg").innerHTML="登录成功!";
+					
+				}				
+			},
+			error:function(){				
+			}			
+		});
+		return false;
+	}
+	
+</script>
+
 </head>
 <!-- //Head -->
 
@@ -32,23 +129,24 @@
 
 		<div class="login w3layouts agileits">
 			<h2>登 录</h2>
-			<form action="login" method="post">
+			<form name="login" method="post" onsubmit="return log()">
 				<input type="text" Name="account" placeholder="用户名" required="">
-				<input type="password" Name="Password" placeholder="密码" required="">
+				<input type="password" Name="password" placeholder="密码" required="">
 				<div class="send-button w3layouts agileits">
 
-					<a href="login"><input type="submit"  value="登 录"></a>
+					<input type="submit"  value="登 录">
 
 			</div>
 			</form>
-			
+			<p id="logmsg"style="color:#CCC"></p>
 			<div class="clear"></div>
+			
 		</div>
 		<div class="register w3layouts agileits">
 		
 		
 			<h2>注 册</h2>
-			<form action="register" method="post">
+			<form name="register" method="post" onsubmit="return check()">
 				<input type="text" Name="account" placeholder="用户名" required="">
 
 				<input type="password" Name="password" placeholder="密码" required="">
@@ -62,6 +160,7 @@
 			</form>
 			
 			<div class="clear"></div>
+			<p id="rgsmsg"></p>
 		</div>
 
 		<div class="clear"></div>
