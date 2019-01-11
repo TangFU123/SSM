@@ -30,8 +30,7 @@
 				//改变登录与注册标签
 				$("#logNreg").attr("href","#");
 				$("#logNreg").text(account);
-			}
-			
+			}			
 		});
 </script>
 
@@ -151,13 +150,13 @@
 			</div>
 			<div class="navbar-collapse collapse" id="navbar">
 				<ul class="nav navbar-nav">
-					<li class="dropdown active"><a href="index.html" title="首页"
+					<li class="dropdown active"><a href="index.jsp" title="首页"
 						class="dropdown-toggle" role="button" aria-haspopup="true"
 						aria-expanded="false">首页</a> <i
 						class="ddl-switch fa fa-angle-down"></i></li>
-					<li><a title="关于我们" href="about.html">关于我们</a></li>
-					<li><a title="房间" href="rooms.html">房间</a></li>
-					<li class="dropdown"><a href="gallery.html" title="画廊"
+					<li><a title="关于我们" href="about.jsp">关于我们</a></li>
+					<li><a title="房间" href="rooms.jsp">房间</a></li>
+					<li class="dropdown"><a href="gallery.jsp" title="画廊"
 						class="dropdown-toggle" role="button" aria-haspopup="true"
 						aria-expanded="false">照片廊</a> <i
 						class="ddl-switch fa fa-angle-down"></i></li>
@@ -579,7 +578,7 @@
 						<img src="images/gallery-1.jpg" alt="gallery">
 						<div class="content-block-hover">
 							<a class="zoom" href="images/gallery-1.jpg" title="Expand"><i
-								class="fa fa-search"></i></a> <a href="gallery-single.html"
+								class="fa fa-search"></i></a> <a href="gallery-single.jsp"
 								title="Link"><i class="fa fa-external-link"></i></a>
 						</div>
 					</div>
@@ -589,7 +588,7 @@
 						<img src="images/gallery-2.jpg" alt="gallery">
 						<div class="content-block-hover">
 							<a class="zoom" href="images/gallery-2.jpg" title="Expand"><i
-								class="fa fa-search"></i></a> <a href="gallery-single.html"
+								class="fa fa-search"></i></a> <a href="gallery-single.jsp"
 								title="Link"><i class="fa fa-external-link"></i></a>
 						</div>
 					</div>
@@ -599,7 +598,7 @@
 						<img src="images/gallery-3.jpg" alt="gallery">
 						<div class="content-block-hover">
 							<a class="zoom" href="images/gallery-3.jpg" title="Expand"><i
-								class="fa fa-search"></i></a> <a href="gallery-single.html"
+								class="fa fa-search"></i></a> <a href="gallery-single.jsp"
 								title="Link"><i class="fa fa-external-link"></i></a>
 						</div>
 					</div>
@@ -609,7 +608,7 @@
 						<img src="images/gallery-4.jpg" alt="gallery">
 						<div class="content-block-hover">
 							<a class="zoom" href="images/gallery-4.jpg" title="Expand"><i
-								class="fa fa-search"></i></a> <a href="gallery-single.html"
+								class="fa fa-search"></i></a> <a href="gallery-single.jsp"
 								title="Link"><i class="fa fa-external-link"></i></a>
 						</div>
 					</div>
@@ -619,7 +618,7 @@
 						<img src="images/gallery-5.jpg" alt="gallery">
 						<div class="content-block-hover">
 							<a class="zoom" href="images/gallery-5.jpg" title="Expand"><i
-								class="fa fa-search"></i></a> <a href="gallery-single.html"
+								class="fa fa-search"></i></a> <a href="gallery-single.jsp"
 								title="Link"><i class="fa fa-external-link"></i></a>
 						</div>
 					</div>
@@ -629,7 +628,7 @@
 						<img src="images/gallery-6.jpg" alt="gallery">
 						<div class="content-block-hover">
 							<a class="zoom" href="images/gallery-6.jpg" title="Expand"><i
-								class="fa fa-search"></i></a> <a href="gallery-single.html"
+								class="fa fa-search"></i></a> <a href="gallery-single.jsp"
 								title="Link"><i class="fa fa-external-link"></i></a>
 						</div>
 					</div>

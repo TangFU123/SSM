@@ -103,7 +103,6 @@
 				}
 				else{				
 					//成功时弹出提示框
-					alert(jsonStr);
 					alert("登录成功");
 					/* 创建一个form表单 添加用户信息到相应input并提交 */
 					var form = document.createElement('form');

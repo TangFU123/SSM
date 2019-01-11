@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
@@ -101,18 +103,18 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a title="Logo1" href="index.html" class="navbar-brand"><img src="images/logo.png"></a>
+						<a title="Logo1" href="index.jsp" class="navbar-brand"><img src="images/logo.png"></a>
 					</div>
 					<div class="navbar-collapse collapse" id="navbar">
 						<ul class="nav navbar-nav">
 							<li class="dropdown">
-								<a href="index.html" title="Pages" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">首页</a>
+								<a href="index.jsp" title="Pages" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">首页</a>
 								<i class="ddl-switch fa fa-angle-down"></i>
 							</li>
-							<li><a title="About Us" href="about.html">关于我们</a></li>
-							<li><a title="Rooms" href="rooms.html">房间</a></li>						
+							<li><a title="About Us" href="about.jsp">关于我们</a></li>
+							<li><a title="Rooms" href="rooms.jsp">房间</a></li>						
 							<li class="dropdown active">
-								<a href="gallery.html" title="Gallery" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">照片廊</a>
+								<a href="gallery.jsp" title="Gallery" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">照片廊</a>
 								<i class="ddl-switch fa fa-angle-down"></i>
 							</li>						
 						</ul>						
@@ -151,7 +153,7 @@
 							<img src="images/gallery-1.jpg" alt="gallery">
 							<div class="content-block-hover">
 								<a class="zoom" href="images/gallery-1.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.html" title="Link"><i class="fa fa-external-link"></i></a>
+								<a href="gallery-single.jsp" title="Link"><i class="fa fa-external-link"></i></a>
 							</div>
 						</div>
 					</li>
@@ -160,7 +162,7 @@
 							<img src="images/gallery-2.jpg" alt="gallery">
 							<div class="content-block-hover">
 								<a class="zoom" href="images/gallery-2.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.html" title="Link"><i class="fa fa-external-link"></i></a>
+								<a href="gallery-single.jsp" title="Link"><i class="fa fa-external-link"></i></a>
 							</div>
 						</div>
 					</li>
@@ -169,7 +171,7 @@
 							<img src="images/gallery-3.jpg" alt="gallery">
 							<div class="content-block-hover">
 								<a class="zoom" href="images/gallery-3.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.html" title="Link"><i class="fa fa-external-link"></i></a>
+								<a href="gallery-single.jsp" title="Link"><i class="fa fa-external-link"></i></a>
 							</div>
 						</div>
 					</li>
@@ -178,7 +180,7 @@
 							<img src="images/gallery-4.jpg" alt="gallery">
 							<div class="content-block-hover">
 								<a class="zoom" href="images/gallery-4.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.html" title="Link"><i class="fa fa-external-link"></i></a>
+								<a href="gallery-single.jsp" title="Link"><i class="fa fa-external-link"></i></a>
 							</div>
 						</div>
 					</li>
@@ -187,7 +189,7 @@
 							<img src="images/gallery-5.jpg" alt="gallery">
 							<div class="content-block-hover">
 								<a class="zoom" href="images/gallery-5.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.html" title="Link"><i class="fa fa-external-link"></i></a>
+								<a href="gallery-single.jsp" title="Link"><i class="fa fa-external-link"></i></a>
 							</div>
 						</div>
 					</li>
@@ -196,7 +198,7 @@
 							<img src="images/gallery-6.jpg" alt="gallery">
 							<div class="content-block-hover">
 								<a class="zoom" href="images/gallery-6.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.html" title="Link"><i class="fa fa-external-link"></i></a>
+								<a href="gallery-single.jsp" title="Link"><i class="fa fa-external-link"></i></a>
 							</div>
 						</div>
 					</li>
@@ -204,8 +206,7 @@
 				<nav class="ow-pagination text-center">
 					<ul class="pagination">
 						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
+						
 					</ul>
 				</nav>
 			</div><!-- Container /- -->

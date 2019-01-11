@@ -39,6 +39,7 @@
 </bean>
 <bean id="CustomerService" class="com.t2.service.CustomerServiceImpl"></bean>
 <bean id="RoomService" class="com.t2.service.RoomServiceImpl"></bean>
+<bean id="PhotoService" class="com.t2.service.PhotoServiceImpl"></bean>
 </beans>
 
 
