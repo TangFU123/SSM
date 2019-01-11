@@ -19,6 +19,8 @@ import com.t2.bean.Customer;
 import com.t2.bean.Room;
 import com.t2.service.RoomService;
 
+import net.sf.json.JSONObject;
+
 @Controller
 public class RoomController extends HttpServlet{
 	@Autowired
@@ -26,7 +28,7 @@ public class RoomController extends HttpServlet{
 	private static final String DISPLAY = "display";
 	private static final String MAIN = "main";
 	@RequestMapping("search")
-	public ModelAndView search(HttpServletRequest request,HttpServletResponse response,Room room)throws ServletException, IOException{
+	public void search(HttpServletRequest request,HttpServletResponse response,Room room)throws ServletException, IOException{
 		//System.out.println("鸡骨草");
 		response.setContentType("text/html;charset=utf-8");
 		List<Room> list = roomService.selectRoomByIsfreeExample(room);
@@ -36,7 +38,23 @@ public class RoomController extends HttpServlet{
 			list.get(0).setIsfree(1);
 			list.get(0).setStartdate(room.getStartdate());
 			list.get(0).setEnddate(room.getEnddate());
-			roomService.updateRoomById(list.get(0));
+			JSONObject jsonObject = new JSONObject();
+
+			jsonObject.put("room", list.get(0));
+			/*jsonObject.put("area", list.get(0).getArea());
+			jsonObject.put("type", list.get(0).getType());
+			jsonObject.put("money", list.get(0).getMoney());
+			jsonObject.put("isfree", list.get(0).getIsfree());
+			jsonObject.put("startdate", list.get(0).getStartdate());
+			jsonObject.put("enddate", list.get(0).getEnddate());
+			jsonObject.put("rid", list.get(0).getRid());*/
+			System.out.println(jsonObject);
+			//把json串返回给前端工程
+			response.getWriter().write(jsonObject.toString());
+
+
+		}
+			/*roomService.updateRoomById(list.get(0));
 			System.out.println(list.get(0).getStartdate()+","+list.get(0).getEnddate());
 			ModelAndView mav = new ModelAndView(DISPLAY);
 			return mav;
@@ -45,7 +63,7 @@ public class RoomController extends HttpServlet{
 			ModelAndView mav = new ModelAndView(MAIN);
 			return mav;
 		}
-		
+		*/
 	
 		
 		

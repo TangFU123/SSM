@@ -6,6 +6,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <property name="context-root" value="ssm_206_01"/>
-        <property name="java-output-path" value="/ssm_206_01/target/classes"/>
+        <property name="java-output-path" value="/SSM4/target/classes"/>
     </wb-module>
 </project-modules>
