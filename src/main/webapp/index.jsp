@@ -1,67 +1,94 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+﻿<%@page import="net.sf.json.JSONObject"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html class="" lang="en"><!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="" lang="en">
+<!--<![endif]-->
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-	<title>Home</title>
-	<!-- Standard Favicon -->
-	<link rel="icon" type="image/x-icon" href="images//favicon.ico" />
-	
-	<!-- For iPhone 4 Retina display: -->
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images//apple-touch-icon-114x114-precomposed.png">
-	
-	<!-- For iPad: -->
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images//apple-touch-icon-72x72-precomposed.png">
-	
-	<!-- For iPhone: -->
-	<link rel="apple-touch-icon-precomposed" href="images//apple-touch-icon-57x57-precomposed.png">
 
-	<!-- Library - Google Font Familys -->	
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700,700i" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-	
-	<link rel="stylesheet" type="text/css" href="revolution/css/settings.css">
- 
-	<!-- RS5.0 Layers and Navigation Styles -->
-	<link rel="stylesheet" type="text/css" href="revolution/css/layers.css">
-	<link rel="stylesheet" type="text/css" href="revolution/css/navigation.css">
-	
-	<!-- Library - Bootstrap v3.3.5 -->
-    <link rel="stylesheet" type="text/css" href="libraries/lib.css">
-	
-	<!-- Custom - Common CSS -->
-	<link rel="stylesheet" type="text/css" href="css/plugins.css">
-	<link rel="stylesheet" type="text/css" href="css/navigation-menu.css">	
-	
-	<!-- Custom - Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="style.css">
-	
-	<!--[if lt IE 9]>
-		<script src="js/html5/respond.min.js"></script>
-    <![endif]-->
+
+
 <!--  导入js-->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <!-- 写jq函数 -->
 <script type="text/javascript">
-	$(document).ready(function() { 
-		alert(111);
-		<%
-        request.setCharacterEncoding("utf-8");
-        String name = request.getParameter("account");
-    	%>
-		alert(<%=name %>);
-	});
-	</script>
+	$(document).ready(function() {
+		
+		<%request.setCharacterEncoding("utf-8");%>
+		//获取从login传来的uid和account
+			var uid = <%=request.getParameter("uid")%>;
+			var account = <%=request.getParameter("account")%>;
+			//当account不为空时执行
+			if(account!=null)
+			{
+				alert("欢迎您:"+account);
+				//改变登录与注册标签
+				$("#logNreg").attr("href","#");
+				$("#logNreg").text(account);
+			}
+			
+		});
+</script>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Home</title>
+<!-- Standard Favicon -->
+<link rel="icon" type="image/x-icon" href="images//favicon.ico" />
+
+<!-- For iPhone 4 Retina display: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="images//apple-touch-icon-114x114-precomposed.png">
+
+<!-- For iPad: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="images//apple-touch-icon-72x72-precomposed.png">
+
+<!-- For iPhone: -->
+<link rel="apple-touch-icon-precomposed"
+	href="images//apple-touch-icon-57x57-precomposed.png">
+
+<!-- Library - Google Font Familys -->
+<link
+	href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700,700i"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+	rel="stylesheet">
+
+<link rel="stylesheet" type="text/css"
+	href="revolution/css/settings.css">
+
+<!-- RS5.0 Layers and Navigation Styles -->
+<link rel="stylesheet" type="text/css" href="revolution/css/layers.css">
+<link rel="stylesheet" type="text/css"
+	href="revolution/css/navigation.css">
+
+<!-- Library - Bootstrap v3.3.5 -->
+<link rel="stylesheet" type="text/css" href="libraries/lib.css">
+
+<!-- Custom - Common CSS -->
+<link rel="stylesheet" type="text/css" href="css/plugins.css">
+<link rel="stylesheet" type="text/css" href="css/navigation-menu.css">
+
+<!-- Custom - Theme CSS -->
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!--[if lt IE 9]>
+		<script src="js/html5/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
 <body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
@@ -72,544 +99,576 @@
 				<div></div>
 			</div>
 		</div>
-	</div--><!-- Loader /- -->
-	
+	</div-->
+	<!-- Loader /- -->
+
 	<!-- Header -->
-	<header class="header-section container-fluid no-padding">
-		<!-- Top Header -->
-		<div class="top-header container-fluid no-padding">
-			<!-- Container -->
-			<div class="container">
-				<!-- Social -->
-				<div class="col-md-7 col-sm-6 col-xs-12 info">
-					<p><i class="icon icon-Pointer"></i>广东技术师范学院</p>
-					<p><i class="icon icon-Phone2"></i><a href="tel:(+01)1234567890" title="Phone" class="phone">(+01) 123 456 7890</a></p>
-				</div>
-				<div class="col-md-5 col-sm-6 col-xs-12 header-social"> 
-					<h5>联系我们</h5>
-					<ul>
-						<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#" title="Google"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
-						<li><a href="#" title="Tripadvisor"><i class="fa fa-tripadvisor"></i></a></li>
-					</ul>
-				</div><!-- Social /- -->
-			</div><!-- Container /- -->
-		</div><!-- Top Header /- -->
-		
-		<!-- Menu Block -->
-		<div class="menu-block container-fluid">
-			<!-- Container -->
-			<div class="container">
-				<!-- Navigation -->
-				<nav class="navbar ow-navigation">
-					<div class="navbar-header">
-						<button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<img src="images/logo.png">
-					</div>
-					<div class="navbar-collapse collapse" id="navbar">
-						<ul class="nav navbar-nav">
-							<li class="dropdown active">
-								<a href="index.html" title="首页" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">首页</a>
-								<i class="ddl-switch fa fa-angle-down"></i>
-							</li>
-							<li><a title="关于我们" href="about.html">关于我们</a></li>
-							<li><a title="房间" href="rooms.html">房间</a></li>							
-							<li class="dropdown">
-								<a href="gallery.html" title="画廊" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">照片廊</a>
-								<i class="ddl-switch fa fa-angle-down"></i>
-							</li>
-							<li><a title="登陆/注册" href="login.jsp">登陆/注册</a></li>							
-						</ul>						
-					</div>
-				</nav><!-- Navigation -->
+	<header class="header-section container-fluid no-padding"> <!-- Top Header -->
+	<div class="top-header container-fluid no-padding">
+		<!-- Container -->
+		<div class="container">
+			<!-- Social -->
+			<div class="col-md-7 col-sm-6 col-xs-12 info">
+				<p>
+					<i class="icon icon-Pointer"></i>广东技术师范学院
+				</p>
+				<p>
+					<i class="icon icon-Phone2"></i><a href="tel:(+01)1234567890"
+						title="Phone" class="phone">(+01) 123 456 7890</a>
+				</p>
 			</div>
-		</div><!-- Menu Block /- -->
-	</header><!-- Header /- -->
-	
-	<main>
-		<!-- Slider Section 2 -->
-		<div id="home-revslider" class="slider-section container-fluid no-padding">
-			<!-- START REVOLUTION SLIDER 5.0 -->
-			<div class="rev_slider_wrapper">
-				<div id="home-slider1" class="rev_slider" data-version="5.0">
-					<ul>
-						<li data-transition="zoomout" data-slotamount="default"  data-easein="easeInOut" data-easeout="easeInOut" data-masterspeed="2000" data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7">
-							<img src="images/slider-1.jpg" alt="slider" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-							<!-- LAYERS -->
-							<!-- LAYER NR. 1 -->
-							<div class="tp-caption tp-shape tp-shapewrapper" id="slide-layer-0"
-								data-x="['center','center','center','center']" 
-								data-y="['middle','middle','middle','middle']" 
-								data-basealign="slide" 
-								data-height="full" 
-								data-hoffset="['0','0','0','0']" 
-								data-responsive="off" 
-								data-responsive_offset="off" 
-								data-start="0" 
-								data-transform_idle="o:1;" 
-								data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" 
-								data-transform_out="opacity:0;s:500;s:500;" 
-								data-voffset="['0','0','0','0']" 
-								data-whitespace="nowrap" 
-								data-width="full"
-								style="z-index: 5;background-color:rgba(0, 0, 0, 0.502);">
-							</div>
-							<!-- LAYER NR. 2 -->
-							<div class="tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0" id="slide-layer-1" 
-								data-x="['left','left','left','left']" data-hoffset="['400','125','100','70']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['-200','-80','-100','-100']" 
-								data-fontsize="['54','40','30','20']"
-								data-lineheight="['70','60','60','60']"
-								data-fontweight="['600','600','600','600']"
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-								data-transform_idle="o:1;"
-								data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-								data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="1000" 
-								data-splitin="chars" 
-								data-splitout="none" 
-								data-responsive_offset="on"
-								data-elementdelay="0.05" 
-								style="z-index: 5; white-space: nowrap; color:#fff; font-family: 'Open Sans', sans-serif; text-transform: uppercase">我们是您寻找豪华度假酒店的
-							</div>
-							<!-- LAYER NR. 3 -->
-							<div class="tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0" id="slide-layer-2" 
-								data-x="['left','left','left','left']" data-hoffset="['400','125','100','70']" 
-								data-y="['top','top','top','top']" data-voffset="['275','300','215','150']" 
-								data-fontsize="['54','45','30','20']"
-								data-fontweight="['400','400','400','400']"
-								data-lineheight="['76','24','24','24']"
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-								data-transform_idle="o:1;"
-								data-transform_in="y:-50px;opacity:0;s:1000;e:Power4.easeOut;" 
-								data-transform_out="opacity:0;s:3000;e:Power4.easeIn;s:3000;e:Power4.easeIn;"
-								data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="1000" 
-								data-splitin="none" 
-								data-splitout="none" 
-								data-responsive_offset="on"
-								data-elementdelay="0.05" 
-								style="z-index: 5; color:#fff; font-family: 'Open Sans', sans-serif; text-transform:uppercase;">忠实伙伴
-							</div>
-							<!-- LAYER NR. 4 -->
-							
-						</li>
-						
-						<li data-transition="zoomout" data-slotamount="default"  data-easein="easeInOut" data-easeout="easeInOut" data-masterspeed="2000" data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7">
-							<img src="images/slider-3.jpg" alt="slider" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-							<div class="tp-caption tp-shape tp-shapewrapper" id="slide-layer-4"
-								data-x="['center','center','center','center']" 
-								data-y="['middle','middle','middle','middle']" 
-								data-basealign="slide" 
-								data-height="full" 
-								data-hoffset="['0','0','0','0']" 
-								data-responsive="off" 
-								data-responsive_offset="off" 
-								data-start="0" 
-								data-transform_idle="o:1;" 
-								data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" 
-								data-transform_out="opacity:0;s:500;s:500;" 
-								data-voffset="['0','0','0','0']" 
-								data-whitespace="nowrap" 
-								data-width="full"
-								style="z-index: 5;background-color:rgba(0, 0, 0, 0.702);">
-							</div>
-							<div class="tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0" id="slide-layer-5" 
-								data-x="['left','left','left','left']" data-hoffset="['550','125','100','35']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['-215','-80','-100','-100']" 
-								data-fontsize="['50','30','25','15']"
-								data-lineheight="['72','45','35','25']"
-								data-fontweight="['600','600','600','600']"
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-								data-transform_idle="o:1;"
-								data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-								data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="1000" 
-								data-splitin="chars" 
-								data-splitout="none" 
-								data-responsive_offset="on"
-								data-elementdelay="0.05" 
-								style="z-index: 5; white-space: nowrap; color:#fff; font-family: 'Open Sans', sans-serif;">22个国家,<br>55家酒店,<br>我们坚持一种理念。
-							</div>
-							<div class="tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0" id="slide-layer-6" 
-								data-x="['left','left','left','left']" data-hoffset="['550','125','100','35']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['-50','40','10','10']" 
-								data-fontsize="['18','18','20','16']"
-								data-lineheight="['24','24','24','24']"
-								data-fontweight="['300','300','300','300']"
-								data-width="['1920','1024','768','400']"
-								data-height="none"
-								data-whitespace="normal"
-								data-transform_idle="o:1;"
-								data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-								data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="1000" 
-								data-splitin="none" 
-								data-splitout="none" 
-								data-responsive_offset="on"
-								data-elementdelay="0.05" 
-								style="z-index: 5; white-space: normal; letter-spacing: 0.45px; word-wrap: break-word; min-width: 1920px; max-width: 1920px; color:#fff; font-family: 'Open Sans', sans-serif; font-style:italic;">让客人住得舒心，住得放心。
-							</div>
-						</li>
-						
-						<li data-transition="zoomout" data-slotamount="default"  data-easein="easeInOut" data-easeout="easeInOut" data-masterspeed="2000" data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7">
-							<img src="images/slider-4.jpg" alt="slider" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-							<!-- LAYERS -->
-							<!-- LAYER NR. 1 -->
-							<div class="tp-caption tp-shape tp-shapewrapper" id="slide-layer-8"
-								data-x="['center','center','center','center']" 
-								data-y="['middle','middle','middle','middle']" 
-								data-basealign="slide" 
-								data-height="full" 
-								data-hoffset="['0','0','0','0']" 
-								data-responsive="off" 
-								data-responsive_offset="off" 
-								data-start="0" 
-								data-transform_idle="o:1;" 
-								data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;" 
-								data-transform_out="opacity:0;s:500;s:500;" 
-								data-voffset="['0','0','0','0']" 
-								data-whitespace="nowrap" 
-								data-width="full"
-								style="z-index: 5;background-color:rgba(0, 0, 0, 0.6);">
-							</div>
-							<div class="tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0" id="slide-layer-9" 
-								data-x="['left','left','left','left']" data-hoffset="['550','125','100','55']" 
-								data-y="['middle','middle','middle','middle']" data-voffset="['-135','-80','-100','-100']" 
-								data-fontsize="['50','30','25','20']"
-								data-lineheight="['72','45','35','25']"
-								data-fontweight="['600','600','600','600']"
-								data-width="none"
-								data-height="none"
-								data-whitespace="nowrap"
-								data-transform_idle="o:1;"
-								data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-								data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-								data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-								data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-								data-start="1000" 
-								data-splitin="chars" 
-								data-splitout="none" 
-								data-responsive_offset="on"
-								data-elementdelay="0.05" 
-								style="z-index: 5; white-space: nowrap; color:#fff; font-family: 'Open Sans', sans-serif;">发现一家<br>定义奢华新维度的酒店  
-							</div>							
-						</li>
-					</ul>
-				</div><!-- END REVOLUTION SLIDER -->
-			</div><!-- END OF SLIDER WRAPPER -->
-			<!-- Booking Section 1 -->
-			<div class="booking-section-1 container-fluid">
-				<!-- Container -->
-				<div class="container">
-					<div class="col-md-4 col-sm-4 col-xs-6">
-						<div class="booking-content-block">
-							<h5>预定 <span>您需要的房间</span></h5>
-						</div>
-					</div>
-					<div class="col-md-8 col-sm-8 col-xs-6">
-						<div id="datepicker3" class="input-group col-md-3 col-sm-3 col-xs-12">
-							<input class="form-control datepicker" placeholder="入住日期" type="text">
-							<span class="input-group-addon add-on">
-								<span class="glyphicon glyphicon-calendar"></span>
-							</span>
-						</div>
-						<div id="datepicker4" class="input-group col-md-3 col-sm-3 col-xs-12">
-							<input class="form-control datepicker" placeholder="离开日期" type="text">
-							<span class="input-group-addon add-on">
-								<span class="glyphicon glyphicon-calendar"></span>
-							</span>
-						</div>
-						<div class="form-group col-md-3 col-sm-3 col-xs-12">
-							<select>
-								<option>没有房间</option>
-								<option>没有房间</option>
-								<option>没有房间</option>
-								<option>没有房间</option>
-							</select>
-						</div>
-						<a href="#" title="现在预定" class="book-now">现在预定</a>
-					</div>
-				</div><!-- Container /- -->
-			</div><!-- Booking Section 1 -->
-		</div><!-- Slider Section 2 /- -->
-		
-		<!-- Welcome Section -->
-		<div class="welcome-section container-fluid">
-			<!-- Container -->
-			<div class="container">
-				<!-- Section Header -->
-				<div class="section-header section-header-2">
-					<h3>欢迎来到 <span>最大的</span> 酒店预订网站</h3>
-				</div><!-- Section Header /- -->
-				<div class="welcome-content">
-					<p>我们酒店位于广东省广州市天河区广东技术师范学院，是一家五星级休闲度假酒店，在酒店客房内即可观赏竹海清新脱俗、风华绝胜的美景，呼吸“天然氧吧”新鲜空气，是您度假、休闲、旅游的理想居所，加上酒店贴心的服务，会让您有“世外桃源”一样的感觉。拥有多间装饰豪华、风饰各异的客房，标准间、豪华房，总统房等一应俱全。酒店提供各种自助餐饮和点餐、健康水疗，高尔夫等服务，户外专设停车场、休闲亭、烧烤区，茶座等配套设施，无论商务、休闲，均另您更贴心满意，尽享时尚人生。</p>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6 welcome-outer">
-					<div class="welcome-box">
-						<span>最佳</span>
-						<p>酒店预订网站的冠军</p>
-						<i class="icon icon-Cup"></i>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6 welcome-outer">
-					<div class="welcome-box">
-						<span>一个真正的</span>
-						<p>豪华酒店度假村</p>
-						<i class="icon icon-Starship"></i>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6 welcome-outer">
-					<div class="welcome-box">
-						<span>真正的</span>
-						<p>低消费酒店</p>
-						<i class="icon icon-Bag"></i>
-					</div>
-				</div>
-			</div><!-- Container / -->
-		</div><!-- Welcome Section /- -->
-		
-		<!-- Whychooseus Section -->
-		<div class="whychooseus-section container-fluid">
-			<!-- Container -->
-			<div class="container">
-				<!-- Section Header -->
-				<div class="section-header section-header-2">
-					<h3>为什么推荐您选择我们？</h3>
-				</div><!-- Section Header /- -->
-				<div class="col-md-6 col-sm-12 col-xs-6">
-					<div class="choose-us-box">
-						<div class="col-md-12 col-sm-12 col-xs-12 no-padding choose-us-block">
-							<div class="col-md-5 col-sm-4 col-xs-12 choose-us-cover">
-								<i><img src="images/choose-us-1.jpg" alt="choose-us" /></i>
-								<a class="zoom" href="images/choose-us-1.jpg" title="offer"><i class="icon icon-Linked"></i></a>
-							</div>
-							<div class="col-md-7 col-sm-8 col-xs-12 choose-us-content">
-								<h5>拥有世界一流餐厅</h5>
-								<p>餐厅采用五彩缤纷的卡车艺术装潢，带有一个私人庭院，为您营造一种前所未有的体验。多种异国香料和传统烹饪技巧，为菜单上琳琅满目的菜式增添更多美味。</p>				
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-6 col-sm-12 col-xs-6">
-					<div class="choose-us-box">
-						<div class="col-md-12 col-sm-12 col-xs-12 no-padding choose-us-block">
-							<div class="col-md-5 col-sm-4 col-xs-12 choose-us-cover">
-								<i><img src="images/choose-us-2.jpg" alt="choose-us" /></i>
-								<a class="zoom" href="images/choose-us-2.jpg" title="offer"><i class="icon icon-Linked"></i></a>
-							</div>
-							<div class="col-md-7 col-sm-8 col-xs-12 choose-us-content">
-								<h5>豪华客房及度假村</h5>
-								<p>酒店处于海边，清新的空气以及优美安静的环境都是工作休假时放松的优先选择的地方，酒店内拥有高尔夫，桌球等各种娱乐健身器具与场地，同时在酒店顶楼有KTV房和游泳池等场地</p>							
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-6 col-sm-12 col-xs-6">
-					<div class="choose-us-box">
-						<div class="col-md-12 col-sm-12 col-xs-12 no-padding choose-us-block">
-							<div class="col-md-5 col-sm-4 col-xs-12 choose-us-cover">
-								<i><img src="images/choose-us-3.jpg" alt="choose-us" /></i>
-								<a class="zoom" href="images/choose-us-3.jpg" title="offer"><i class="icon icon-Linked"></i></a>
-							</div>
-							<div class="col-md-7 col-sm-8 col-xs-12 choose-us-content">
-								<h5>健康水疗</h5>
-								<p>酒店内有提供健康水疗的场所，如果你最近工作压力大，易失眠，或者是睡眠质量差，白天感觉身体困乏无力，那么可以考虑前去做一场健康水疗</p>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-6 col-sm-12 col-xs-6">
-					<div class="choose-us-box">
-						<div class="col-md-12 col-sm-12 col-xs-12 no-padding choose-us-block">
-							<div class="col-md-5 col-sm-4 col-xs-12 choose-us-cover">
-								<i><img src="images/choose-us-4.jpg" alt="choose-us" /></i>
-								<a class="zoom" href="images/choose-us-4.jpg" title="offer"><i class="icon icon-Linked"></i></a>
-							</div>
-							<div class="col-md-7 col-sm-8 col-xs-12 choose-us-content">
-								<h5>提供粗麦制成的早晨</h5>
-								<p>每天早晨都会为您提供一份粗麦制成的早餐，纯手工制作而成，根据您的要求制作成你喜欢的形状，美味可口让您整个早上都能拥有好心情</p>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><!-- Container /- -->
-		</div><!-- Whychooseus Section /- -->
-		
-		<!-- Offer Section -->
-		<div class="offer-section container-fluid">
-			<!-- Container -->
-			<div class="container">
-				<!-- Section Header -->
-				<div class="section-header section-header-2">
-					<h3>我们提供的房间</h3>
-				</div><!-- Section Header /- -->
-				<div class="offer-carousel">
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="offer-box">
-							<i><img src="images/offer-1.jpg" alt="offer"></i>
-							<div class="offer-content">
-								<h5>标准房间</h5>
-								<p></p>
-								<span>$200起/晚</span>
-								<a class="zoom" href="images/offer-1.jpg" title="offer"><i class="fa fa-plus"></i></a>
-								<a href="#" title="现在预定" class="book-now">现在预定</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="offer-box">
-							<i><img src="images/offer-2.jpg" alt="offer"></i>
-							<div class="offer-content">
-								<h5>豪华房间</h5>
-								<p></p>
-								<span>$500起/晚</span>
-								<a class="zoom" href="images/offer-2.jpg" title="offer"><i class="fa fa-plus"></i></a>
-								<a href="#" title="现在预定" class="book-now">现在预定</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="offer-box">
-							<i><img src="images/offer-3.jpg" alt="offer"></i>
-							<div class="offer-content">
-								<h5>总统房间</h5>
-								<p></p>
-								<span>$900起/晚</span>
-								<a class="zoom" href="images/offer-3.jpg" title="offer"><i class="fa fa-plus"></i></a>
-								<a href="#" title="现在预定" class="book-now">现在预定</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><!-- Container /- -->
-		</div><!-- Offer Section /- -->
-		<!-- Counter Section -->
-		<div class="counter-section container-fluid"></div>
-		<!-- Gallery Section -->
-		<div class="gallery-section container-fluid">
-			<!-- Container -->
-			<div class="container">
-				<!-- Section Header -->
-				<div class="section-header">
-					<h3>照片廊</h3>
-				</div><!-- Section Header /- -->
-				<ul id="filters" class="portfolio-categories no-left-padding">
-					<li><a data-filter="*" class="active" href="#">所有图片</a></li>
-					<li><a data-filter=".design" href="#">房间</a></li>
-					<li><a data-filter=".video" href="#">度假村</a></li>
-					<li><a data-filter=".photography" href="#">餐厅</a></li>
-					<li><a data-filter=".web" href="#">健康水疗室</a></li>
+			<div class="col-md-5 col-sm-6 col-xs-12 header-social">
+				<h5>联系我们</h5>
+				<ul>
+					<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="#" title="Google"><i
+							class="fa fa-google-plus"></i></a></li>
+					<li><a href="#" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="#" title="Tripadvisor"><i
+							class="fa fa-tripadvisor"></i></a></li>
 				</ul>
-				<ul class="portfolio-list no-left-padding">
-					<li class="col-md-4 col-sm-4 col-xs-6 design">
-						<div class="content-image-block">
-							<img src="images/gallery-1.jpg" alt="gallery">
-							<div class="content-block-hover">
-								<a class="zoom" href="images/gallery-1.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.html" title="Link"><i class="fa fa-external-link"></i></a>
-							</div>
-						</div>
-					</li>
-					<li class="col-md-4 col-sm-4 col-xs-6 video">
-						<div class="content-image-block">
-							<img src="images/gallery-2.jpg" alt="gallery">
-							<div class="content-block-hover">
-								<a class="zoom" href="images/gallery-2.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.html" title="Link"><i class="fa fa-external-link"></i></a>
-							</div>
-						</div>
-					</li>
-					<li class="col-md-4 col-sm-4 col-xs-6 photography">
-						<div class="content-image-block">
-							<img src="images/gallery-3.jpg" alt="gallery">
-							<div class="content-block-hover">
-								<a class="zoom" href="images/gallery-3.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.html" title="Link"><i class="fa fa-external-link"></i></a>
-							</div>
-						</div>
-					</li>
-					<li class="col-md-4 col-sm-4 col-xs-6 design">
-						<div class="content-image-block">
-							<img src="images/gallery-4.jpg" alt="gallery">
-							<div class="content-block-hover">
-								<a class="zoom" href="images/gallery-4.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.html" title="Link"><i class="fa fa-external-link"></i></a>
-							</div>
-						</div>
-					</li>
-					<li class="col-md-4 col-sm-4 col-xs-6 photography">
-						<div class="content-image-block">
-							<img src="images/gallery-5.jpg" alt="gallery">
-							<div class="content-block-hover">
-								<a class="zoom" href="images/gallery-5.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.html" title="Link"><i class="fa fa-external-link"></i></a>
-							</div>
-						</div>
-					</li>
-					<li class="col-md-4 col-sm-4 col-xs-6 web">
-						<div class="content-image-block">
-							<img src="images/gallery-6.jpg" alt="gallery">
-							<div class="content-block-hover">
-								<a class="zoom" href="images/gallery-6.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.html" title="Link"><i class="fa fa-external-link"></i></a>
-							</div>
-						</div>
-					</li>
+			</div>
+			<!-- Social /- -->
+		</div>
+		<!-- Container /- -->
+	</div>
+	<!-- Top Header /- --> <!-- Menu Block -->
+	<div class="menu-block container-fluid">
+		<!-- Container -->
+		<div class="container">
+			<!-- Navigation -->
+			<nav class="navbar ow-navigation">
+			<div class="navbar-header">
+				<button aria-controls="navbar" aria-expanded="false"
+					data-target="#navbar" data-toggle="collapse"
+					class="navbar-toggle collapsed" type="button">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<img src="images/logo.png">
+			</div>
+			<div class="navbar-collapse collapse" id="navbar">
+				<ul class="nav navbar-nav">
+					<li class="dropdown active"><a href="index.html" title="首页"
+						class="dropdown-toggle" role="button" aria-haspopup="true"
+						aria-expanded="false">首页</a> <i
+						class="ddl-switch fa fa-angle-down"></i></li>
+					<li><a title="关于我们" href="about.html">关于我们</a></li>
+					<li><a title="房间" href="rooms.html">房间</a></li>
+					<li class="dropdown"><a href="gallery.html" title="画廊"
+						class="dropdown-toggle" role="button" aria-haspopup="true"
+						aria-expanded="false">照片廊</a> <i
+						class="ddl-switch fa fa-angle-down"></i></li>
+					<li><a id="logNreg" href="login.jsp">登陆/注册</a></li>
 				</ul>
-				<nav class="ow-pagination text-center">
-					<ul class="pagination">
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-					</ul>
-				</nav>
-			</div><!-- Container /- -->
-		</div><!-- Gallery Section /- -->
-		
-		<!-- Callout -->
-		<div class="callout container-fluid">
-			
-		</div><!-- Callout /- -->	
-	</main>
+			</div>
+			</nav>
+			<!-- Navigation -->
+		</div>
+	</div>
+	<!-- Menu Block /- --> </header>
+	<!-- Header /- -->
+
+	<main> <!-- Slider Section 2 -->
+	<div id="home-revslider"
+		class="slider-section container-fluid no-padding">
+		<!-- START REVOLUTION SLIDER 5.0 -->
+		<div class="rev_slider_wrapper">
+			<div id="home-slider1" class="rev_slider" data-version="5.0">
+				<ul>
+					<li data-transition="zoomout" data-slotamount="default"
+						data-easein="easeInOut" data-easeout="easeInOut"
+						data-masterspeed="2000" data-rotate="0" data-fstransition="fade"
+						data-fsmasterspeed="1500" data-fsslotamount="7"><img
+						src="images/slider-1.jpg" alt="slider"
+						data-bgposition="center center" data-bgfit="cover"
+						data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg"
+						data-no-retina> <!-- LAYERS --> <!-- LAYER NR. 1 -->
+						<div class="tp-caption tp-shape tp-shapewrapper"
+							id="slide-layer-0" data-x="['center','center','center','center']"
+							data-y="['middle','middle','middle','middle']"
+							data-basealign="slide" data-height="full"
+							data-hoffset="['0','0','0','0']" data-responsive="off"
+							data-responsive_offset="off" data-start="0"
+							data-transform_idle="o:1;"
+							data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;"
+							data-transform_out="opacity:0;s:500;s:500;"
+							data-voffset="['0','0','0','0']" data-whitespace="nowrap"
+							data-width="full"
+							style="z-index: 5; background-color: rgba(0, 0, 0, 0.502);">
+						</div> <!-- LAYER NR. 2 -->
+						<div
+							class="tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0"
+							id="slide-layer-1" data-x="['left','left','left','left']"
+							data-hoffset="['400','125','100','70']"
+							data-y="['middle','middle','middle','middle']"
+							data-voffset="['-200','-80','-100','-100']"
+							data-fontsize="['54','40','30','20']"
+							data-lineheight="['70','60','60','60']"
+							data-fontweight="['600','600','600','600']" data-width="none"
+							data-height="none" data-whitespace="nowrap"
+							data-transform_idle="o:1;"
+							data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+							data-start="1000" data-splitin="chars" data-splitout="none"
+							data-responsive_offset="on" data-elementdelay="0.05"
+							style="z-index: 5; white-space: nowrap; color: #fff; font-family: 'Open Sans', sans-serif; text-transform: uppercase">我们是您寻找豪华度假酒店的
+						</div> <!-- LAYER NR. 3 -->
+						<div
+							class="tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0"
+							id="slide-layer-2" data-x="['left','left','left','left']"
+							data-hoffset="['400','125','100','70']"
+							data-y="['top','top','top','top']"
+							data-voffset="['275','300','215','150']"
+							data-fontsize="['54','45','30','20']"
+							data-fontweight="['400','400','400','400']"
+							data-lineheight="['76','24','24','24']" data-width="none"
+							data-height="none" data-whitespace="nowrap"
+							data-transform_idle="o:1;"
+							data-transform_in="y:-50px;opacity:0;s:1000;e:Power4.easeOut;"
+							data-transform_out="opacity:0;s:3000;e:Power4.easeIn;s:3000;e:Power4.easeIn;"
+							data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+							data-start="1000" data-splitin="none" data-splitout="none"
+							data-responsive_offset="on" data-elementdelay="0.05"
+							style="z-index: 5; color: #fff; font-family: 'Open Sans', sans-serif; text-transform: uppercase;">忠实伙伴
+						</div> <!-- LAYER NR. 4 --></li>
+
+					<li data-transition="zoomout" data-slotamount="default"
+						data-easein="easeInOut" data-easeout="easeInOut"
+						data-masterspeed="2000" data-rotate="0" data-fstransition="fade"
+						data-fsmasterspeed="1500" data-fsslotamount="7"><img
+						src="images/slider-3.jpg" alt="slider"
+						data-bgposition="center center" data-bgfit="cover"
+						data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg"
+						data-no-retina>
+						<div class="tp-caption tp-shape tp-shapewrapper"
+							id="slide-layer-4" data-x="['center','center','center','center']"
+							data-y="['middle','middle','middle','middle']"
+							data-basealign="slide" data-height="full"
+							data-hoffset="['0','0','0','0']" data-responsive="off"
+							data-responsive_offset="off" data-start="0"
+							data-transform_idle="o:1;"
+							data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;"
+							data-transform_out="opacity:0;s:500;s:500;"
+							data-voffset="['0','0','0','0']" data-whitespace="nowrap"
+							data-width="full"
+							style="z-index: 5; background-color: rgba(0, 0, 0, 0.702);">
+						</div>
+						<div
+							class="tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0"
+							id="slide-layer-5" data-x="['left','left','left','left']"
+							data-hoffset="['550','125','100','35']"
+							data-y="['middle','middle','middle','middle']"
+							data-voffset="['-215','-80','-100','-100']"
+							data-fontsize="['50','30','25','15']"
+							data-lineheight="['72','45','35','25']"
+							data-fontweight="['600','600','600','600']" data-width="none"
+							data-height="none" data-whitespace="nowrap"
+							data-transform_idle="o:1;"
+							data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+							data-start="1000" data-splitin="chars" data-splitout="none"
+							data-responsive_offset="on" data-elementdelay="0.05"
+							style="z-index: 5; white-space: nowrap; color: #fff; font-family: 'Open Sans', sans-serif;">
+							22个国家,<br>55家酒店,<br>我们坚持一种理念。
+						</div>
+						<div
+							class="tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0"
+							id="slide-layer-6" data-x="['left','left','left','left']"
+							data-hoffset="['550','125','100','35']"
+							data-y="['middle','middle','middle','middle']"
+							data-voffset="['-50','40','10','10']"
+							data-fontsize="['18','18','20','16']"
+							data-lineheight="['24','24','24','24']"
+							data-fontweight="['300','300','300','300']"
+							data-width="['1920','1024','768','400']" data-height="none"
+							data-whitespace="normal" data-transform_idle="o:1;"
+							data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+							data-start="1000" data-splitin="none" data-splitout="none"
+							data-responsive_offset="on" data-elementdelay="0.05"
+							style="z-index: 5; white-space: normal; letter-spacing: 0.45px; word-wrap: break-word; min-width: 1920px; max-width: 1920px; color: #fff; font-family: 'Open Sans', sans-serif; font-style: italic;">让客人住得舒心，住得放心。
+						</div></li>
+
+					<li data-transition="zoomout" data-slotamount="default"
+						data-easein="easeInOut" data-easeout="easeInOut"
+						data-masterspeed="2000" data-rotate="0" data-fstransition="fade"
+						data-fsmasterspeed="1500" data-fsslotamount="7"><img
+						src="images/slider-4.jpg" alt="slider"
+						data-bgposition="center center" data-bgfit="cover"
+						data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg"
+						data-no-retina> <!-- LAYERS --> <!-- LAYER NR. 1 -->
+						<div class="tp-caption tp-shape tp-shapewrapper"
+							id="slide-layer-8" data-x="['center','center','center','center']"
+							data-y="['middle','middle','middle','middle']"
+							data-basealign="slide" data-height="full"
+							data-hoffset="['0','0','0','0']" data-responsive="off"
+							data-responsive_offset="off" data-start="0"
+							data-transform_idle="o:1;"
+							data-transform_in="opacity:0;s:2000;e:Power2.easeInOut;"
+							data-transform_out="opacity:0;s:500;s:500;"
+							data-voffset="['0','0','0','0']" data-whitespace="nowrap"
+							data-width="full"
+							style="z-index: 5; background-color: rgba(0, 0, 0, 0.6);">
+						</div>
+						<div
+							class="tp-caption NotGeneric-Title tp-resizeme rs-parallaxlevel-0"
+							id="slide-layer-9" data-x="['left','left','left','left']"
+							data-hoffset="['550','125','100','55']"
+							data-y="['middle','middle','middle','middle']"
+							data-voffset="['-135','-80','-100','-100']"
+							data-fontsize="['50','30','25','20']"
+							data-lineheight="['72','45','35','25']"
+							data-fontweight="['600','600','600','600']" data-width="none"
+							data-height="none" data-whitespace="nowrap"
+							data-transform_idle="o:1;"
+							data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
+							data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+							data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+							data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
+							data-start="1000" data-splitin="chars" data-splitout="none"
+							data-responsive_offset="on" data-elementdelay="0.05"
+							style="z-index: 5; white-space: nowrap; color: #fff; font-family: 'Open Sans', sans-serif;">
+							发现一家<br>定义奢华新维度的酒店
+						</div></li>
+				</ul>
+			</div>
+			<!-- END REVOLUTION SLIDER -->
+		</div>
+		<!-- END OF SLIDER WRAPPER -->
+		<!-- Booking Section 1 -->
+		<div class="booking-section-1 container-fluid">
+			<!-- Container -->
+			<div class="container">
+				<div class="col-md-4 col-sm-4 col-xs-6">
+					<div class="booking-content-block">
+						<h5>
+							预定 <span>您需要的房间</span>
+						</h5>
+					</div>
+				</div>
+				<div class="col-md-8 col-sm-8 col-xs-6">
+					<div id="datepicker3"
+						class="input-group col-md-3 col-sm-3 col-xs-12">
+						<input class="form-control datepicker" placeholder="入住日期"
+							type="text"> <span class="input-group-addon add-on">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+					</div>
+					<div id="datepicker4"
+						class="input-group col-md-3 col-sm-3 col-xs-12">
+						<input class="form-control datepicker" placeholder="离开日期"
+							type="text"> <span class="input-group-addon add-on">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+					</div>
+					<div class="form-group col-md-3 col-sm-3 col-xs-12">
+						<select>
+							<option>没有房间</option>
+							<option>没有房间</option>
+							<option>没有房间</option>
+							<option>没有房间</option>
+						</select>
+					</div>
+					<a href="#" title="现在预定" class="book-now">现在预定</a>
+				</div>
+			</div>
+			<!-- Container /- -->
+		</div>
+		<!-- Booking Section 1 -->
+	</div>
+	<!-- Slider Section 2 /- --> <!-- Welcome Section -->
+	<div class="welcome-section container-fluid">
+		<!-- Container -->
+		<div class="container">
+			<!-- Section Header -->
+			<div class="section-header section-header-2">
+				<h3>
+					欢迎来到 <span>最大的</span> 酒店预订网站
+				</h3>
+			</div>
+			<!-- Section Header /- -->
+			<div class="welcome-content">
+				<p>我们酒店位于广东省广州市天河区广东技术师范学院，是一家五星级休闲度假酒店，在酒店客房内即可观赏竹海清新脱俗、风华绝胜的美景，呼吸“天然氧吧”新鲜空气，是您度假、休闲、旅游的理想居所，加上酒店贴心的服务，会让您有“世外桃源”一样的感觉。拥有多间装饰豪华、风饰各异的客房，标准间、豪华房，总统房等一应俱全。酒店提供各种自助餐饮和点餐、健康水疗，高尔夫等服务，户外专设停车场、休闲亭、烧烤区，茶座等配套设施，无论商务、休闲，均另您更贴心满意，尽享时尚人生。</p>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6 welcome-outer">
+				<div class="welcome-box">
+					<span>最佳</span>
+					<p>酒店预订网站的冠军</p>
+					<i class="icon icon-Cup"></i>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6 welcome-outer">
+				<div class="welcome-box">
+					<span>一个真正的</span>
+					<p>豪华酒店度假村</p>
+					<i class="icon icon-Starship"></i>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6 welcome-outer">
+				<div class="welcome-box">
+					<span>真正的</span>
+					<p>低消费酒店</p>
+					<i class="icon icon-Bag"></i>
+				</div>
+			</div>
+		</div>
+		<!-- Container / -->
+	</div>
+	<!-- Welcome Section /- --> <!-- Whychooseus Section -->
+	<div class="whychooseus-section container-fluid">
+		<!-- Container -->
+		<div class="container">
+			<!-- Section Header -->
+			<div class="section-header section-header-2">
+				<h3>为什么推荐您选择我们？</h3>
+			</div>
+			<!-- Section Header /- -->
+			<div class="col-md-6 col-sm-12 col-xs-6">
+				<div class="choose-us-box">
+					<div
+						class="col-md-12 col-sm-12 col-xs-12 no-padding choose-us-block">
+						<div class="col-md-5 col-sm-4 col-xs-12 choose-us-cover">
+							<i><img src="images/choose-us-1.jpg" alt="choose-us" /></i> <a
+								class="zoom" href="images/choose-us-1.jpg" title="offer"><i
+								class="icon icon-Linked"></i></a>
+						</div>
+						<div class="col-md-7 col-sm-8 col-xs-12 choose-us-content">
+							<h5>拥有世界一流餐厅</h5>
+							<p>餐厅采用五彩缤纷的卡车艺术装潢，带有一个私人庭院，为您营造一种前所未有的体验。多种异国香料和传统烹饪技巧，为菜单上琳琅满目的菜式增添更多美味。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-sm-12 col-xs-6">
+				<div class="choose-us-box">
+					<div
+						class="col-md-12 col-sm-12 col-xs-12 no-padding choose-us-block">
+						<div class="col-md-5 col-sm-4 col-xs-12 choose-us-cover">
+							<i><img src="images/choose-us-2.jpg" alt="choose-us" /></i> <a
+								class="zoom" href="images/choose-us-2.jpg" title="offer"><i
+								class="icon icon-Linked"></i></a>
+						</div>
+						<div class="col-md-7 col-sm-8 col-xs-12 choose-us-content">
+							<h5>豪华客房及度假村</h5>
+							<p>酒店处于海边，清新的空气以及优美安静的环境都是工作休假时放松的优先选择的地方，酒店内拥有高尔夫，桌球等各种娱乐健身器具与场地，同时在酒店顶楼有KTV房和游泳池等场地</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-sm-12 col-xs-6">
+				<div class="choose-us-box">
+					<div
+						class="col-md-12 col-sm-12 col-xs-12 no-padding choose-us-block">
+						<div class="col-md-5 col-sm-4 col-xs-12 choose-us-cover">
+							<i><img src="images/choose-us-3.jpg" alt="choose-us" /></i> <a
+								class="zoom" href="images/choose-us-3.jpg" title="offer"><i
+								class="icon icon-Linked"></i></a>
+						</div>
+						<div class="col-md-7 col-sm-8 col-xs-12 choose-us-content">
+							<h5>健康水疗</h5>
+							<p>酒店内有提供健康水疗的场所，如果你最近工作压力大，易失眠，或者是睡眠质量差，白天感觉身体困乏无力，那么可以考虑前去做一场健康水疗</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-sm-12 col-xs-6">
+				<div class="choose-us-box">
+					<div
+						class="col-md-12 col-sm-12 col-xs-12 no-padding choose-us-block">
+						<div class="col-md-5 col-sm-4 col-xs-12 choose-us-cover">
+							<i><img src="images/choose-us-4.jpg" alt="choose-us" /></i> <a
+								class="zoom" href="images/choose-us-4.jpg" title="offer"><i
+								class="icon icon-Linked"></i></a>
+						</div>
+						<div class="col-md-7 col-sm-8 col-xs-12 choose-us-content">
+							<h5>提供粗麦制成的早晨</h5>
+							<p>每天早晨都会为您提供一份粗麦制成的早餐，纯手工制作而成，根据您的要求制作成你喜欢的形状，美味可口让您整个早上都能拥有好心情</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Container /- -->
+	</div>
+	<!-- Whychooseus Section /- --> <!-- Offer Section -->
+	<div class="offer-section container-fluid">
+		<!-- Container -->
+		<div class="container">
+			<!-- Section Header -->
+			<div class="section-header section-header-2">
+				<h3>我们提供的房间</h3>
+			</div>
+			<!-- Section Header /- -->
+			<div class="offer-carousel">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="offer-box">
+						<i><img src="images/offer-1.jpg" alt="offer"></i>
+						<div class="offer-content">
+							<h5>标准房间</h5>
+							<p></p>
+							<span>$200起/晚</span> <a class="zoom" href="images/offer-1.jpg"
+								title="offer"><i class="fa fa-plus"></i></a> <a href="#"
+								title="现在预定" class="book-now">现在预定</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="offer-box">
+						<i><img src="images/offer-2.jpg" alt="offer"></i>
+						<div class="offer-content">
+							<h5>豪华房间</h5>
+							<p></p>
+							<span>$500起/晚</span> <a class="zoom" href="images/offer-2.jpg"
+								title="offer"><i class="fa fa-plus"></i></a> <a href="#"
+								title="现在预定" class="book-now">现在预定</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="offer-box">
+						<i><img src="images/offer-3.jpg" alt="offer"></i>
+						<div class="offer-content">
+							<h5>总统房间</h5>
+							<p></p>
+							<span>$900起/晚</span> <a class="zoom" href="images/offer-3.jpg"
+								title="offer"><i class="fa fa-plus"></i></a> <a href="#"
+								title="现在预定" class="book-now">现在预定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Container /- -->
+	</div>
+	<!-- Offer Section /- --> <!-- Counter Section -->
+	<div class="counter-section container-fluid"></div>
+	<!-- Gallery Section -->
+	<div class="gallery-section container-fluid">
+		<!-- Container -->
+		<div class="container">
+			<!-- Section Header -->
+			<div class="section-header">
+				<h3>照片廊</h3>
+			</div>
+			<!-- Section Header /- -->
+			<ul id="filters" class="portfolio-categories no-left-padding">
+				<li><a data-filter="*" class="active" href="#">所有图片</a></li>
+				<li><a data-filter=".design" href="#">房间</a></li>
+				<li><a data-filter=".video" href="#">度假村</a></li>
+				<li><a data-filter=".photography" href="#">餐厅</a></li>
+				<li><a data-filter=".web" href="#">健康水疗室</a></li>
+			</ul>
+			<ul class="portfolio-list no-left-padding">
+				<li class="col-md-4 col-sm-4 col-xs-6 design">
+					<div class="content-image-block">
+						<img src="images/gallery-1.jpg" alt="gallery">
+						<div class="content-block-hover">
+							<a class="zoom" href="images/gallery-1.jpg" title="Expand"><i
+								class="fa fa-search"></i></a> <a href="gallery-single.html"
+								title="Link"><i class="fa fa-external-link"></i></a>
+						</div>
+					</div>
+				</li>
+				<li class="col-md-4 col-sm-4 col-xs-6 video">
+					<div class="content-image-block">
+						<img src="images/gallery-2.jpg" alt="gallery">
+						<div class="content-block-hover">
+							<a class="zoom" href="images/gallery-2.jpg" title="Expand"><i
+								class="fa fa-search"></i></a> <a href="gallery-single.html"
+								title="Link"><i class="fa fa-external-link"></i></a>
+						</div>
+					</div>
+				</li>
+				<li class="col-md-4 col-sm-4 col-xs-6 photography">
+					<div class="content-image-block">
+						<img src="images/gallery-3.jpg" alt="gallery">
+						<div class="content-block-hover">
+							<a class="zoom" href="images/gallery-3.jpg" title="Expand"><i
+								class="fa fa-search"></i></a> <a href="gallery-single.html"
+								title="Link"><i class="fa fa-external-link"></i></a>
+						</div>
+					</div>
+				</li>
+				<li class="col-md-4 col-sm-4 col-xs-6 design">
+					<div class="content-image-block">
+						<img src="images/gallery-4.jpg" alt="gallery">
+						<div class="content-block-hover">
+							<a class="zoom" href="images/gallery-4.jpg" title="Expand"><i
+								class="fa fa-search"></i></a> <a href="gallery-single.html"
+								title="Link"><i class="fa fa-external-link"></i></a>
+						</div>
+					</div>
+				</li>
+				<li class="col-md-4 col-sm-4 col-xs-6 photography">
+					<div class="content-image-block">
+						<img src="images/gallery-5.jpg" alt="gallery">
+						<div class="content-block-hover">
+							<a class="zoom" href="images/gallery-5.jpg" title="Expand"><i
+								class="fa fa-search"></i></a> <a href="gallery-single.html"
+								title="Link"><i class="fa fa-external-link"></i></a>
+						</div>
+					</div>
+				</li>
+				<li class="col-md-4 col-sm-4 col-xs-6 web">
+					<div class="content-image-block">
+						<img src="images/gallery-6.jpg" alt="gallery">
+						<div class="content-block-hover">
+							<a class="zoom" href="images/gallery-6.jpg" title="Expand"><i
+								class="fa fa-search"></i></a> <a href="gallery-single.html"
+								title="Link"><i class="fa fa-external-link"></i></a>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<nav class="ow-pagination text-center">
+			<ul class="pagination">
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+			</ul>
+			</nav>
+		</div>
+		<!-- Container /- -->
+	</div>
+	<!-- Gallery Section /- --> <!-- Callout -->
+	<div class="callout container-fluid"></div>
+	<!-- Callout /- --> </main>
 
 	<!-- JQuery v1.11.3 -->
 	<script src="js/jquery.min.js"></script>
 	<!-- Library - Js -->
-	<script src="libraries/lib.js"></script><!-- Bootstrap JS File v3.3.5 -->
+	<script src="libraries/lib.js"></script>
+	<!-- Bootstrap JS File v3.3.5 -->
 	<!-- RS5.0 Core JS Files -->
-	<script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
-	<script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
-	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
-	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-	<script type="text/javascript" src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
+	<script type="text/javascript"
+		src="revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
+	<script type="text/javascript"
+		src="revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
+	<script type="text/javascript"
+		src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+	<script type="text/javascript"
+		src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+	<script type="text/javascript"
+		src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script type="text/javascript"
+		src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+	<script type="text/javascript"
+		src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
 	<script src="js/functions.js"></script>
 </body>
 </html>
