@@ -24,6 +24,10 @@ public class RoomServiceImpl implements RoomService{
 		criteria.andIsfreeEqualTo(0);
 		return roomMapper.selectByExample(roomExample);
 	}
+
+	public int updateRoomById(Room room) {
+		return roomMapper.updateByPrimaryKey(room);
+	}
 	
 
 }

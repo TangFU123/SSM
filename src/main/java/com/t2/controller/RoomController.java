@@ -1,7 +1,15 @@
 package com.t2.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
+
+import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,25 +20,33 @@ import com.t2.bean.Room;
 import com.t2.service.RoomService;
 
 @Controller
-public class RoomController {
+public class RoomController extends HttpServlet{
 	@Autowired
 	RoomService roomService;
 	private static final String DISPLAY = "display";
+	private static final String MAIN = "main";
 	@RequestMapping("search")
-	public ModelAndView search(Room room){
-		/*//System.out.println("鸡骨草");
+	public ModelAndView search(HttpServletRequest request,HttpServletResponse response,Room room)throws ServletException, IOException{
+		//System.out.println("鸡骨草");
+		response.setContentType("text/html;charset=utf-8");
 		List<Room> list = roomService.selectRoomByIsfreeExample(room);
 		//有房间空闲 则预定
 		if(list.size() >= 1) {
-			list.get(0).setStartdate(startdate);
-			
-			
+			System.out.println(list.get(0).getArea()+","+list.get(0).getType());
+			list.get(0).setIsfree(1);
+			list.get(0).setStartdate(room.getStartdate());
+			list.get(0).setEnddate(room.getEnddate());
+			roomService.updateRoomById(list.get(0));
+			System.out.println(list.get(0).getStartdate()+","+list.get(0).getEnddate());
+			ModelAndView mav = new ModelAndView(DISPLAY);
+			return mav;
+		}else {
+			JOptionPane.showMessageDialog(null, "对不起 没有可预定的房间了");
+			ModelAndView mav = new ModelAndView(MAIN);
+			return mav;
 		}
 		
-		*/
-		System.out.println("搜索");
-		ModelAndView mav = new ModelAndView(DISPLAY);
-		return mav;
+	
 		
 		
 	}
