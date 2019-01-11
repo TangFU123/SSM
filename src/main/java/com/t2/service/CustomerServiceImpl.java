@@ -40,5 +40,23 @@ public class CustomerServiceImpl implements CustomerService {
 				
 				return customerMapper.selectByExample(customerExample);
 	}
+
+	public List<Customer> selectCustomerByIdExample(Customer customer) {
+		//Example条件查询类的使用
+		CustomerExample customerExample = new CustomerExample();
+		Criteria criteria = customerExample.createCriteria();
+		//criteria.andIdLessThan(2);
+		//criteria.andNameEqualTo("aaa");
+		//criteria.andPasswordLike("__4%");
+		//criteria.andAccountEqualTo(customer.getAccount());
+		criteria.andIdEqualTo(customer.getId());
+		
+		return customerMapper.selectByExample(customerExample);
+	}//Example条件查询类的使用
+
+	public int updateRoomById(Customer customer) {
+		return customerMapper.updateByPrimaryKey(customer);
+	}
+	
 }
 	

@@ -21,12 +21,24 @@ public class RoomServiceImpl implements RoomService{
 		//criteria.andNameEqualTo("aaa");
 		//criteria.andPasswordLike("__4%");
 		//criteria.andAccountEqualTo(customer.getAccount());
-		criteria.andIsfreeEqualTo(0);
+		//criteria.andIsfreeEqualTo(0);
 		return roomMapper.selectByExample(roomExample);
 	}
 
 	public int updateRoomById(Room room) {
 		return roomMapper.updateByPrimaryKey(room);
+	}
+
+	public List<Room> selectRoomByIdExample(Room room) {
+		//Example条件查询类的使用
+				RoomExample roomExample = new RoomExample();
+				Criteria criteria = roomExample.createCriteria();
+				//criteria.andIdLessThan(2);
+				//criteria.andNameEqualTo("aaa");
+				//criteria.andPasswordLike("__4%");
+				//criteria.andAccountEqualTo(customer.getAccount());
+				criteria.andIdEqualTo(room.getId());
+				return roomMapper.selectByExample(roomExample);
 	}
 	
 

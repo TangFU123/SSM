@@ -27,7 +27,7 @@ public class RoomController extends HttpServlet{
 	RoomService roomService;
 	private static final String DISPLAY = "display";
 	private static final String MAIN = "main";
-	@RequestMapping("search")
+	/*@RequestMapping("search")
 	public void search(HttpServletRequest request,HttpServletResponse response,Room room)throws ServletException, IOException{
 		//System.out.println("鸡骨草");
 		response.setContentType("text/html;charset=utf-8");
@@ -41,20 +41,20 @@ public class RoomController extends HttpServlet{
 			JSONObject jsonObject = new JSONObject();
 
 			jsonObject.put("room", list.get(0));
-			/*jsonObject.put("area", list.get(0).getArea());
+			jsonObject.put("area", list.get(0).getArea());
 			jsonObject.put("type", list.get(0).getType());
 			jsonObject.put("money", list.get(0).getMoney());
 			jsonObject.put("isfree", list.get(0).getIsfree());
 			jsonObject.put("startdate", list.get(0).getStartdate());
 			jsonObject.put("enddate", list.get(0).getEnddate());
-			jsonObject.put("rid", list.get(0).getRid());*/
+			jsonObject.put("rid", list.get(0).getRid());
 			System.out.println(jsonObject);
 			//把json串返回给前端工程
 			response.getWriter().write(jsonObject.toString());
 
 
 		}
-			/*roomService.updateRoomById(list.get(0));
+			roomService.updateRoomById(list.get(0));
 			System.out.println(list.get(0).getStartdate()+","+list.get(0).getEnddate());
 			ModelAndView mav = new ModelAndView(DISPLAY);
 			return mav;
@@ -63,10 +63,44 @@ public class RoomController extends HttpServlet{
 			ModelAndView mav = new ModelAndView(MAIN);
 			return mav;
 		}
-		*/
+		
 	
 		
 		
+	}*/
+	
+	@RequestMapping("insert")
+	public void insert(HttpServletRequest request,HttpServletResponse response,Room room)throws ServletException, IOException{
+		String cid = request.getParameter("cid");
+		System.out.println(cid+","+room);
+		Customer customer = new Customer();
+		customer.setId(Integer.parseInt(cid));
+		System.out.println(customer.getId());
+		System.out.println(room.getId()+","+room.getStartdate()+","+room.getInterday());
+		List<Room> list = roomService.selectRoomByIdExample(room);
+		System.out.println(customer.getId());
+		List<Customer> list1 = customerService.selectCustomerByIdExample(customer);
+		
+		if(list.size() >= 1) {
+			if(list1.size() >= 1) {
+				System.out.println(customer.getId());
+				customer.setinterdate(room.getStartdate());
+				customer.setRid(request.getParameter("rid"));
+				customerService.updateRoomById(customer);
+				roomService.updateRoomById(room);
+
+				
+			}else {
+				JOptionPane.showMessageDialog(null, "对不起 该用户不存在");
+				
+			}
+			
+		}else {
+			JOptionPane.showMessageDialog(null, "对不起 该房间不存在");
+			
+		}
+	
+	
 	}
 
 

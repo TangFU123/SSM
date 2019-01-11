@@ -9,13 +9,11 @@ public class Room {
 
     private Integer money;
 
-    private Integer isfree;
-
     private String startdate;
 
     private String rid;
 
-    private String enddate;
+    private Integer interday;
 
     public Integer getId() {
         return id;
@@ -49,14 +47,6 @@ public class Room {
         this.money = money;
     }
 
-    public Integer getIsfree() {
-        return isfree;
-    }
-
-    public void setIsfree(Integer isfree) {
-        this.isfree = isfree;
-    }
-
     public String getStartdate() {
         return startdate;
     }
@@ -73,11 +63,11 @@ public class Room {
         this.rid = rid == null ? null : rid.trim();
     }
 
-    public String getEnddate() {
-        return enddate;
+    public Integer getInterday() {
+        return interday;
     }
 
-    public void setEnddate(String enddate) {
-        this.enddate = enddate == null ? null : enddate.trim();
+    public void setInterday(Integer interday) {
+        this.interday = interday;
     }
 }
