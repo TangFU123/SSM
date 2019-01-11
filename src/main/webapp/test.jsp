@@ -22,7 +22,7 @@
             //编码设置
             contentType:"application/json;charset=utf-8",
             //向后台发送的数据
-            data: {"description": "all"},
+            data: "room",
 			success:function(data){
 				//json转string
 				var jsonStr = JSON.stringify(data);

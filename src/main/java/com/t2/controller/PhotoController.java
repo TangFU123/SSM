@@ -33,7 +33,7 @@ public class PhotoController extends HttpServlet{
 	@RequestMapping("searchPhoto")
 	@ResponseBody
 	public Object search(@RequestBody(required=false) String key){
-		//System.out.println("¼¦¹Ç²Ý");
+		System.out.println(key);
 		
 		List<String> list = photoService.selectLikeByExample(key);
 		JSONObject jsonObject = new JSONObject();

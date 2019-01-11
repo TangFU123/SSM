@@ -67,16 +67,7 @@
     </where>
   </sql>
   <!--//模糊查询  -->
-      <select id="selectLikeByExample" parameterType="com.t2.bean.PhotoExample" resultMap="BaseResultMap">
-        
-        SELECT location FROM photo
-        <where>
-            <if test="description != null and description != ''">
-                AND description LIKE CONCAT(CONCAT('%',#{description},'%'))
-            </if>
-        </where>
-        ORDER BY id
-    </select>
+      <select id="selectLikeByExample" resultType="java.lang.String" >SELECT location FROM photo where description LIKE "%"#{description}"%"</select>
 
   <sql id="Base_Column_List">
     id, location, log, description, upload
