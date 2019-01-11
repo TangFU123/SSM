@@ -17,9 +17,9 @@ public class Customer {
 
     private String password;
 
-    private String rid;
+	private String rid;
 
-    private Date interdate;
+    private String interdate;
 
     private String number;
 
@@ -63,12 +63,12 @@ public class Customer {
         this.rid = rid == null ? null : rid.trim();
     }
 
-    public Date getInterdate() {
+    public String getinterdate() {
         return interdate;
     }
 
-    public void setInterdate(Date interdate) {
-        this.interdate = interdate;
+    public void setinterdate(String interdate) {
+        this.interdate = interdate == null ? null : interdate.trim();
     }
 
     public String getNumber() {

@@ -33,7 +33,7 @@ public class CustomerController {
 	
 	@RequestMapping("register")
 	@ResponseBody
-	public JSONObject  register(@RequestBody(required=false) Customer customer){
+	public Object  register(@RequestBody(required=false) Customer customer){
 		
 
 		JSONObject jsonObject = new JSONObject();
@@ -92,16 +92,23 @@ public class CustomerController {
 	}
 	@RequestMapping("login")
 	@ResponseBody
-	public JSONObject login(@RequestBody(required=false) Customer customer) {
+	public Object login(@RequestBody(required=false) Customer customer) {
 		List<Customer> list = customerService.selectCustomerByAccountExample(customer);
 		JSONObject jsonObject = new JSONObject();
 		if(list.size() >= 1 && list.get(0).getPassword().equals(customer.getPassword())) {
 			//System.out.println(list.size()+customer.getPassword()+","+list.get(0).getPassword());
-			
+			System.out.println(list.get(0));
 			jsonObject.put("result", 0);
+			jsonObject.put("uid", list.get(0).getId());
+			jsonObject.put("account", list.get(0).getAccount());
+			jsonObject.put("password", list.get(0).getPassword());
+			jsonObject.put("rid", list.get(0).getRid());
+			jsonObject.put("interdate", list.get(0).getinterdate());
+			jsonObject.put("number", list.get(0).getNumber());
 			return jsonObject;
 		}else {
 			jsonObject.put("result", 1);
+			
 			return jsonObject;
 			
 		}

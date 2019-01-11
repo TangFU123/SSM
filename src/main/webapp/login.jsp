@@ -98,15 +98,54 @@
 				//string转json
 				var json = eval("("+jsonStr+")");
 				
-				if(json.result=="1"){
-				
-					document.getElementById("logmsg").innerHTML="登录失败，用户名或密码错误!";
-					
+				if(json.result=="1"){				
+					document.getElementById("logmsg").innerHTML="登录失败，用户名或密码错误!";				
 				}
-				else{
-				
-					document.getElementById("logmsg").innerHTML="登录成功!";
+				else{				
+					//成功时弹出提示框
+					var keys = Object.keys(json);
+					alert(keys[0]);
+					/* 创建一个form表单 添加用户信息到相应input并提交 */
+					var form = document.createElement('form');
+					    form.action = 'index.jsp';
+					    form.method = 'post';  
+					var i = 1;
+					for(i = 1;i<keys.length;i++){
+						
+						var key = keys[i]
+						alert(key);
+						var input = document.createElement('input');
+					    input.type = 'hidden';
+					    input.name = key;
+					    input.value = json.getString(keys[i]);
+					    form.appendChild(input); 
+					}
+						    
+					     
+					    /* var input2 = document.createElement('input');
+					    input2.type = 'hidden';
+					    input2.name = 'password';
+					    input2.value = json.password;
+					    form.appendChild(input2); 
+					   	var input3 = document.createElement('input');
+					    input3.type = 'hidden';
+					    input3.name = 'uid';
+					    input3.value = json.uid;
+					    form.appendChild(input3);  
+					    var input4 = document.createElement('input');
+					    input4.type = 'hidden';
+					    input4.name = 'rid';
+					    input4.value = json.rid;
+					    form.appendChild(input4);  
+					    var input5 = document.createElement('input');
+					    input5.type = 'hidden';
+					    input5.name = 'interdate';
+					    input5.value = json.inter;
+					    form.appendChild(input2);  */ 
+					    $(document.body).append(form);
+					    form.submit();
 					
+
 				}				
 			},
 			error:function(){				

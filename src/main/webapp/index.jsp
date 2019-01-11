@@ -49,7 +49,19 @@
 	<!--[if lt IE 9]>
 		<script src="js/html5/respond.min.js"></script>
     <![endif]-->
-	
+<!--  导入js-->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- 写jq函数 -->
+<script type="text/javascript">
+	$(document).ready(function() { 
+		alert(111);
+		<%
+        request.setCharacterEncoding("utf-8");
+        String name = request.getParameter("account");
+    	%>
+		alert(<%=name %>);
+	});
+	</script>
 </head>
 
 <body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
