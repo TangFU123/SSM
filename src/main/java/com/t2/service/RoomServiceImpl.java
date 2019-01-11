@@ -14,31 +14,19 @@ public class RoomServiceImpl implements RoomService{
 	RoomMapper roomMapper;
 
 	public List<Room> selectRoomByIsfreeExample(Room room) {
-		//Example条件查询类的使用
+		//Example脤玫录镁虏茅脩炉脌脿碌脛脢鹿脫脙
 		RoomExample roomExample = new RoomExample();
 		Criteria criteria = roomExample.createCriteria();
 		//criteria.andIdLessThan(2);
 		//criteria.andNameEqualTo("aaa");
 		//criteria.andPasswordLike("__4%");
 		//criteria.andAccountEqualTo(customer.getAccount());
-		//criteria.andIsfreeEqualTo(0);
+		criteria.andIsfreeEqualTo(0);
 		return roomMapper.selectByExample(roomExample);
 	}
 
 	public int updateRoomById(Room room) {
 		return roomMapper.updateByPrimaryKey(room);
-	}
-
-	public List<Room> selectRoomByIdExample(Room room) {
-		//Example条件查询类的使用
-				RoomExample roomExample = new RoomExample();
-				Criteria criteria = roomExample.createCriteria();
-				//criteria.andIdLessThan(2);
-				//criteria.andNameEqualTo("aaa");
-				//criteria.andPasswordLike("__4%");
-				//criteria.andAccountEqualTo(customer.getAccount());
-				criteria.andIdEqualTo(room.getId());
-				return roomMapper.selectByExample(roomExample);
 	}
 	
 

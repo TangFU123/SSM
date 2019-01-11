@@ -364,6 +364,66 @@ public class RoomExample {
             return (Criteria) this;
         }
 
+        public Criteria andIsfreeIsNull() {
+            addCriterion("isfree is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsfreeIsNotNull() {
+            addCriterion("isfree is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsfreeEqualTo(Integer value) {
+            addCriterion("isfree =", value, "isfree");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsfreeNotEqualTo(Integer value) {
+            addCriterion("isfree <>", value, "isfree");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsfreeGreaterThan(Integer value) {
+            addCriterion("isfree >", value, "isfree");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsfreeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("isfree >=", value, "isfree");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsfreeLessThan(Integer value) {
+            addCriterion("isfree <", value, "isfree");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsfreeLessThanOrEqualTo(Integer value) {
+            addCriterion("isfree <=", value, "isfree");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsfreeIn(List<Integer> values) {
+            addCriterion("isfree in", values, "isfree");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsfreeNotIn(List<Integer> values) {
+            addCriterion("isfree not in", values, "isfree");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsfreeBetween(Integer value1, Integer value2) {
+            addCriterion("isfree between", value1, value2, "isfree");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsfreeNotBetween(Integer value1, Integer value2) {
+            addCriterion("isfree not between", value1, value2, "isfree");
+            return (Criteria) this;
+        }
+
         public Criteria andStartdateIsNull() {
             addCriterion("startdate is null");
             return (Criteria) this;
@@ -504,63 +564,73 @@ public class RoomExample {
             return (Criteria) this;
         }
 
-        public Criteria andInterdayIsNull() {
-            addCriterion("interday is null");
+        public Criteria andEnddateIsNull() {
+            addCriterion("enddate is null");
             return (Criteria) this;
         }
 
-        public Criteria andInterdayIsNotNull() {
-            addCriterion("interday is not null");
+        public Criteria andEnddateIsNotNull() {
+            addCriterion("enddate is not null");
             return (Criteria) this;
         }
 
-        public Criteria andInterdayEqualTo(Integer value) {
-            addCriterion("interday =", value, "interday");
+        public Criteria andEnddateEqualTo(String value) {
+            addCriterion("enddate =", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andInterdayNotEqualTo(Integer value) {
-            addCriterion("interday <>", value, "interday");
+        public Criteria andEnddateNotEqualTo(String value) {
+            addCriterion("enddate <>", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andInterdayGreaterThan(Integer value) {
-            addCriterion("interday >", value, "interday");
+        public Criteria andEnddateGreaterThan(String value) {
+            addCriterion("enddate >", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andInterdayGreaterThanOrEqualTo(Integer value) {
-            addCriterion("interday >=", value, "interday");
+        public Criteria andEnddateGreaterThanOrEqualTo(String value) {
+            addCriterion("enddate >=", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andInterdayLessThan(Integer value) {
-            addCriterion("interday <", value, "interday");
+        public Criteria andEnddateLessThan(String value) {
+            addCriterion("enddate <", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andInterdayLessThanOrEqualTo(Integer value) {
-            addCriterion("interday <=", value, "interday");
+        public Criteria andEnddateLessThanOrEqualTo(String value) {
+            addCriterion("enddate <=", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andInterdayIn(List<Integer> values) {
-            addCriterion("interday in", values, "interday");
+        public Criteria andEnddateLike(String value) {
+            addCriterion("enddate like", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andInterdayNotIn(List<Integer> values) {
-            addCriterion("interday not in", values, "interday");
+        public Criteria andEnddateNotLike(String value) {
+            addCriterion("enddate not like", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andInterdayBetween(Integer value1, Integer value2) {
-            addCriterion("interday between", value1, value2, "interday");
+        public Criteria andEnddateIn(List<String> values) {
+            addCriterion("enddate in", values, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andInterdayNotBetween(Integer value1, Integer value2) {
-            addCriterion("interday not between", value1, value2, "interday");
+        public Criteria andEnddateNotIn(List<String> values) {
+            addCriterion("enddate not in", values, "enddate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnddateBetween(String value1, String value2) {
+            addCriterion("enddate between", value1, value2, "enddate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnddateNotBetween(String value1, String value2) {
+            addCriterion("enddate not between", value1, value2, "enddate");
             return (Criteria) this;
         }
     }
