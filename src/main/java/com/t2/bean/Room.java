@@ -1,5 +1,7 @@
 package com.t2.bean;
 
+import java.util.Date;
+
 public class Room {
     private Integer id;
 
@@ -11,11 +13,11 @@ public class Room {
 
     private Integer isfree;
 
-    private String startdate;
+    private Date startdate;
 
     private String rid;
 
-    private String enddate;
+    private Integer enddate;
 
     public Integer getId() {
         return id;
@@ -57,12 +59,12 @@ public class Room {
         this.isfree = isfree;
     }
 
-    public String getStartdate() {
+    public Date getStartdate() {
         return startdate;
     }
 
-    public void setStartdate(String startdate) {
-        this.startdate = startdate == null ? null : startdate.trim();
+    public void setStartdate(Date startdate) {
+        this.startdate = startdate;
     }
 
     public String getRid() {
@@ -73,11 +75,11 @@ public class Room {
         this.rid = rid == null ? null : rid.trim();
     }
 
-    public String getEnddate() {
+    public Integer getEnddate() {
         return enddate;
     }
 
-    public void setEnddate(String enddate) {
-        this.enddate = enddate == null ? null : enddate.trim();
+    public void setEnddate(Integer enddate) {
+        this.enddate = enddate;
     }
 }

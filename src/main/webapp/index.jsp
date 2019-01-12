@@ -26,12 +26,57 @@
 			//当account不为空时执行
 			if(account!=null)
 			{
-				alert("欢迎您:"+account);
+				
 				//改变登录与注册标签
 				$("#logNreg").attr("href","#");
 				$("#logNreg").text(account);
 			}			
 		});
+	
+	function find(){
+		var begin=document.getElementById("begin").value;		
+		var date=document.getElementById("time").value;
+		if(begin=="")
+		{
+			document.getElementById("begin").value="请输入入住时间!";			
+		}
+		else if(date=="")
+		{
+			document.getElementById("date").value="请输入想住多久!";
+		}
+		else{		
+				var key={
+						type:"senior"
+				};			
+				$.ajax({
+					//设置发送地址
+					url:"http://localhost:8080/ssm_206_01/searchRoom",
+					//设置发送方式
+					type:"post",
+					 //设置接收格式为JSON
+		            dataType:"json",
+		            //编码设置
+		            contentType:"application/json;charset=utf-8",
+		            //向后台发送的数据
+		            data: JSON.stringify(key),
+					success:function(data){
+						var jsonStr = JSON.stringify(data);
+						//string转json
+						var json = eval("("+jsonStr+")");
+						$("#rooms").empty();
+				
+						$("#rooms").append("<option value='"+json.rid1[0]+"'>"+json.type1+"</option>");
+						$("#rooms").append("<option value='"+json.rid2[0]+"'>"+json.type2+"</option>");
+						$("#rooms").append("<option value='"+json.rid3[0]+"'>"+json.type3+"</option>");
+					},
+					error:function(){				
+					}
+				});			
+			
+		}
+		
+	}
+	
 </script>
 
 <meta charset="utf-8">
@@ -359,26 +404,24 @@
 					<div id="datepicker3"
 						class="input-group col-md-3 col-sm-3 col-xs-12">
 						<input class="form-control datepicker" placeholder="入住日期"
-							type="text"> <span class="input-group-addon add-on">
-							<span class="glyphicon glyphicon-calendar"></span>
+							type="text" id="begin" > <span class="input-group-addon add-on" >
+							<span class="glyphicon glyphicon-calendar" ></span>
 						</span>
 					</div>
-					<div id="datepicker4"
+					<div  
 						class="input-group col-md-3 col-sm-3 col-xs-12">
-						<input class="form-control datepicker" placeholder="离开日期"
-							type="text"> <span class="input-group-addon add-on">
-							<span class="glyphicon glyphicon-calendar"></span>
+						<input class="form-control datepicker" placeholder="想住多久"
+							type="text" id="time" > <span class="input-group-addon add-on">
+							
 						</span>
 					</div>
-					<div class="form-group col-md-3 col-sm-3 col-xs-12">
-						<select>
-							<option>没有房间</option>
-							<option>没有房间</option>
-							<option>没有房间</option>
-							<option>没有房间</option>
+					<div class="form-group col-md-3 col-sm-3 col-xs-12" >
+						<select id="rooms">
+							<option>...</option>
+							
 						</select>
 					</div>
-					<a href="#" title="现在预定" class="book-now">现在预定</a>
+					<a href="javascript:void(0);"  class="book-now" onclick="find()">查询房间</a>
 				</div>
 			</div>
 			<!-- Container /- -->
@@ -557,94 +600,7 @@
 	<!-- Offer Section /- --> <!-- Counter Section -->
 	<div class="counter-section container-fluid"></div>
 	<!-- Gallery Section -->
-	<div class="gallery-section container-fluid">
-		<!-- Container -->
-		<div class="container">
-			<!-- Section Header -->
-			<div class="section-header">
-				<h3>照片廊</h3>
-			</div>
-			<!-- Section Header /- -->
-			<ul id="filters" class="portfolio-categories no-left-padding">
-				<li><a data-filter="*" class="active" href="#">所有图片</a></li>
-				<li><a data-filter=".design" href="#">房间</a></li>
-				<li><a data-filter=".video" href="#">度假村</a></li>
-				<li><a data-filter=".photography" href="#">餐厅</a></li>
-				<li><a data-filter=".web" href="#">健康水疗室</a></li>
-			</ul>
-			<ul class="portfolio-list no-left-padding">
-				<li class="col-md-4 col-sm-4 col-xs-6 design">
-					<div class="content-image-block">
-						<img src="images/gallery-1.jpg" alt="gallery">
-						<div class="content-block-hover">
-							<a class="zoom" href="images/gallery-1.jpg" title="Expand"><i
-								class="fa fa-search"></i></a> <a href="gallery-single.jsp"
-								title="Link"><i class="fa fa-external-link"></i></a>
-						</div>
-					</div>
-				</li>
-				<li class="col-md-4 col-sm-4 col-xs-6 video">
-					<div class="content-image-block">
-						<img src="images/gallery-2.jpg" alt="gallery">
-						<div class="content-block-hover">
-							<a class="zoom" href="images/gallery-2.jpg" title="Expand"><i
-								class="fa fa-search"></i></a> <a href="gallery-single.jsp"
-								title="Link"><i class="fa fa-external-link"></i></a>
-						</div>
-					</div>
-				</li>
-				<li class="col-md-4 col-sm-4 col-xs-6 photography">
-					<div class="content-image-block">
-						<img src="images/gallery-3.jpg" alt="gallery">
-						<div class="content-block-hover">
-							<a class="zoom" href="images/gallery-3.jpg" title="Expand"><i
-								class="fa fa-search"></i></a> <a href="gallery-single.jsp"
-								title="Link"><i class="fa fa-external-link"></i></a>
-						</div>
-					</div>
-				</li>
-				<li class="col-md-4 col-sm-4 col-xs-6 design">
-					<div class="content-image-block">
-						<img src="images/gallery-4.jpg" alt="gallery">
-						<div class="content-block-hover">
-							<a class="zoom" href="images/gallery-4.jpg" title="Expand"><i
-								class="fa fa-search"></i></a> <a href="gallery-single.jsp"
-								title="Link"><i class="fa fa-external-link"></i></a>
-						</div>
-					</div>
-				</li>
-				<li class="col-md-4 col-sm-4 col-xs-6 photography">
-					<div class="content-image-block">
-						<img src="images/gallery-5.jpg" alt="gallery">
-						<div class="content-block-hover">
-							<a class="zoom" href="images/gallery-5.jpg" title="Expand"><i
-								class="fa fa-search"></i></a> <a href="gallery-single.jsp"
-								title="Link"><i class="fa fa-external-link"></i></a>
-						</div>
-					</div>
-				</li>
-				<li class="col-md-4 col-sm-4 col-xs-6 web">
-					<div class="content-image-block">
-						<img src="images/gallery-6.jpg" alt="gallery">
-						<div class="content-block-hover">
-							<a class="zoom" href="images/gallery-6.jpg" title="Expand"><i
-								class="fa fa-search"></i></a> <a href="gallery-single.jsp"
-								title="Link"><i class="fa fa-external-link"></i></a>
-						</div>
-					</div>
-				</li>
-			</ul>
-			<nav class="ow-pagination text-center">
-			<ul class="pagination">
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-			</ul>
-			</nav>
-		</div>
-		<!-- Container /- -->
-	</div>
-	<!-- Gallery Section /- --> <!-- Callout -->
+	 <!-- Callout -->
 	<div class="callout container-fluid"></div>
 	<!-- Callout /- --> </main>
 

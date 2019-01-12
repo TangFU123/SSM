@@ -101,18 +101,18 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a title="Logo1" href="index.html" class="navbar-brand"><img src="images/logo.png"></a>
+						<a title="Logo1" href="index.jsp" class="navbar-brand"><img src="images/logo.png"></a>
 					</div>
 					<div class="navbar-collapse collapse" id="navbar">
 						<ul class="nav navbar-nav">
 							<li class="dropdown">
-								<a href="index.html" title="Pages" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">首页</a>
+								<a href="index.jsp" title="Pages" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">首页</a>
 								<i class="ddl-switch fa fa-angle-down"></i>
 							</li>
-							<li><a title="About Us" href="about.html">关于我们</a></li>
-							<li class="active"><a title="Rooms" href="rooms.html">房间</a></li>
+							<li><a title="About Us" href="about.jsp">关于我们</a></li>
+							<li class="active"><a title="Rooms" href="rooms.jsp">房间</a></li>
 							<li class="dropdown">
-								<a href="gallery.html" title="Gallery" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">照片廊</a>
+								<a href="gallery.jsp" title="Gallery" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">照片廊</a>
 								<i class="ddl-switch fa fa-angle-down"></i>
 							</li>
 						</ul>						

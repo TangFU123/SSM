@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.t2.bean.Customer;
-import com.t2.bean.Room;
+
 import com.t2.service.PhotoService;
-import com.t2.service.RoomService;
+
 
 import net.sf.json.JSONObject;
 
@@ -38,7 +38,7 @@ public class PhotoController extends HttpServlet{
 		//String×ªjson
 		JSONObject json = JSONObject.fromObject(key.toString());
 		System.out.println(json);
-		List<String> list = photoService.selectLikeByExample(json.getString("decription"),json.getInt("page"),1);
+		List<String> list = photoService.selectLikeByExample(json.getString("decription"),json.getInt("page"),6);
 		JSONObject jsonObject = new JSONObject();
 		if(list.size() >= 1) {
 			//System.out.println("ÕËºÅÒÑ´æÔÚ");

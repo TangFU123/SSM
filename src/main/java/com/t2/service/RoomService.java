@@ -1,10 +1,8 @@
 package com.t2.service;
 
+import java.util.Date;
 import java.util.List;
 
-import com.t2.bean.Room;
-
 public interface RoomService {
-	public List<Room> selectRoomByIsfreeExample(Room room);
-	public int updateRoomById(Room room);
+	public List<String> selectLikeByExample(Integer key,String type);
 }

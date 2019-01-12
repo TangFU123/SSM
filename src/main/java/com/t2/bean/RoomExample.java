@@ -1,6 +1,8 @@
 package com.t2.bean;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class RoomExample {
@@ -102,6 +104,32 @@ public class RoomExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
+        }
+
+        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
+            if (value == null) {
+                throw new RuntimeException("Value for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Date(value.getTime()), property);
+        }
+
+        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
+            if (values == null || values.size() == 0) {
+                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
+            }
+            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
+            Iterator<Date> iter = values.iterator();
+            while (iter.hasNext()) {
+                dateList.add(new java.sql.Date(iter.next().getTime()));
+            }
+            addCriterion(condition, dateList, property);
+        }
+
+        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
+            if (value1 == null || value2 == null) {
+                throw new RuntimeException("Between values for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andIdIsNull() {
@@ -434,63 +462,53 @@ public class RoomExample {
             return (Criteria) this;
         }
 
-        public Criteria andStartdateEqualTo(String value) {
-            addCriterion("startdate =", value, "startdate");
+        public Criteria andStartdateEqualTo(Date value) {
+            addCriterionForJDBCDate("startdate =", value, "startdate");
             return (Criteria) this;
         }
 
-        public Criteria andStartdateNotEqualTo(String value) {
-            addCriterion("startdate <>", value, "startdate");
+        public Criteria andStartdateNotEqualTo(Date value) {
+            addCriterionForJDBCDate("startdate <>", value, "startdate");
             return (Criteria) this;
         }
 
-        public Criteria andStartdateGreaterThan(String value) {
-            addCriterion("startdate >", value, "startdate");
+        public Criteria andStartdateGreaterThan(Date value) {
+            addCriterionForJDBCDate("startdate >", value, "startdate");
             return (Criteria) this;
         }
 
-        public Criteria andStartdateGreaterThanOrEqualTo(String value) {
-            addCriterion("startdate >=", value, "startdate");
+        public Criteria andStartdateGreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("startdate >=", value, "startdate");
             return (Criteria) this;
         }
 
-        public Criteria andStartdateLessThan(String value) {
-            addCriterion("startdate <", value, "startdate");
+        public Criteria andStartdateLessThan(Date value) {
+            addCriterionForJDBCDate("startdate <", value, "startdate");
             return (Criteria) this;
         }
 
-        public Criteria andStartdateLessThanOrEqualTo(String value) {
-            addCriterion("startdate <=", value, "startdate");
+        public Criteria andStartdateLessThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("startdate <=", value, "startdate");
             return (Criteria) this;
         }
 
-        public Criteria andStartdateLike(String value) {
-            addCriterion("startdate like", value, "startdate");
+        public Criteria andStartdateIn(List<Date> values) {
+            addCriterionForJDBCDate("startdate in", values, "startdate");
             return (Criteria) this;
         }
 
-        public Criteria andStartdateNotLike(String value) {
-            addCriterion("startdate not like", value, "startdate");
+        public Criteria andStartdateNotIn(List<Date> values) {
+            addCriterionForJDBCDate("startdate not in", values, "startdate");
             return (Criteria) this;
         }
 
-        public Criteria andStartdateIn(List<String> values) {
-            addCriterion("startdate in", values, "startdate");
+        public Criteria andStartdateBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("startdate between", value1, value2, "startdate");
             return (Criteria) this;
         }
 
-        public Criteria andStartdateNotIn(List<String> values) {
-            addCriterion("startdate not in", values, "startdate");
-            return (Criteria) this;
-        }
-
-        public Criteria andStartdateBetween(String value1, String value2) {
-            addCriterion("startdate between", value1, value2, "startdate");
-            return (Criteria) this;
-        }
-
-        public Criteria andStartdateNotBetween(String value1, String value2) {
-            addCriterion("startdate not between", value1, value2, "startdate");
+        public Criteria andStartdateNotBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("startdate not between", value1, value2, "startdate");
             return (Criteria) this;
         }
 
@@ -574,62 +592,52 @@ public class RoomExample {
             return (Criteria) this;
         }
 
-        public Criteria andEnddateEqualTo(String value) {
+        public Criteria andEnddateEqualTo(Integer value) {
             addCriterion("enddate =", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andEnddateNotEqualTo(String value) {
+        public Criteria andEnddateNotEqualTo(Integer value) {
             addCriterion("enddate <>", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andEnddateGreaterThan(String value) {
+        public Criteria andEnddateGreaterThan(Integer value) {
             addCriterion("enddate >", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andEnddateGreaterThanOrEqualTo(String value) {
+        public Criteria andEnddateGreaterThanOrEqualTo(Integer value) {
             addCriterion("enddate >=", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andEnddateLessThan(String value) {
+        public Criteria andEnddateLessThan(Integer value) {
             addCriterion("enddate <", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andEnddateLessThanOrEqualTo(String value) {
+        public Criteria andEnddateLessThanOrEqualTo(Integer value) {
             addCriterion("enddate <=", value, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andEnddateLike(String value) {
-            addCriterion("enddate like", value, "enddate");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnddateNotLike(String value) {
-            addCriterion("enddate not like", value, "enddate");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnddateIn(List<String> values) {
+        public Criteria andEnddateIn(List<Integer> values) {
             addCriterion("enddate in", values, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andEnddateNotIn(List<String> values) {
+        public Criteria andEnddateNotIn(List<Integer> values) {
             addCriterion("enddate not in", values, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andEnddateBetween(String value1, String value2) {
+        public Criteria andEnddateBetween(Integer value1, Integer value2) {
             addCriterion("enddate between", value1, value2, "enddate");
             return (Criteria) this;
         }
 
-        public Criteria andEnddateNotBetween(String value1, String value2) {
+        public Criteria andEnddateNotBetween(Integer value1, Integer value2) {
             addCriterion("enddate not between", value1, value2, "enddate");
             return (Criteria) this;
         }

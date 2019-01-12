@@ -12,9 +12,12 @@
 <script type="text/javascript">
 	function check(){		
 		alert(111);
+		var key={
+				type:"senior"
+		};
 		$.ajax({
 			//设置发送地址
-			url:"http://localhost:8080/ssm_206_01/searchPhoto",
+			url:"http://localhost:8080/ssm_206_01/searchRoom",
 			//设置发送方式
 			type:"post",
 			 //设置接收格式为JSON
@@ -22,7 +25,7 @@
             //编码设置
             contentType:"application/json;charset=utf-8",
             //向后台发送的数据
-            data: "room",
+            data: JSON.stringify(key),
 			success:function(data){
 				//json转string
 				var jsonStr = JSON.stringify(data);

@@ -61,11 +61,61 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <!-- 写jq函数 -->
 <script type="text/javascript">
-	function change(){		
-		alert(111);
-		 var page=1;
+	$(document).ready(function (){		
+		
+		 
 		 var key={decription:"all",
-     			  page:page,
+    			  page:0,
+		};
+		$.ajax({
+			//设置发送地址
+			url:"http://localhost:8080/ssm_206_01/searchPhoto",
+			//设置发送方式
+			type:"post",
+			 //设置接收格式为JSON
+           dataType:"json",
+           //编码设置
+           contentType:"application/json;charset=utf-8",
+           //向后台发送的数据
+           data: JSON.stringify(key),           	
+			success:function(data){
+				//json转string			
+				var jsonStr = JSON.stringify(data);
+				//string转json
+				var json = eval("("+jsonStr+")");								
+				var list=json.loaction;
+				var ul=document.getElementById("photos");
+				ul.innerHTML="";
+				var i = 0;
+				 for(i = 0;i<list.length;i++)
+				{
+					
+						 //获取到Ul列表
+						
+						 var li = document.createElement("li");
+						 var div = document.createElement("div");
+						 var img = document.createElement("img");
+						//创建元素Li
+						li.className="col-md-4 col-sm-4 col-xs-6 design";
+						div.className="content-image-block";
+						img.src="images/gallery-"+list[i]+".jpg";
+						/* li.innerHTML='<div class="content-image-block"><img src="images/gallery-'+list[i]+'.jpg alt="gallery"></div>' */
+						div.append(img);
+						li.append(div);
+						ul.append(li);
+						/**   */
+				}		 
+			},
+			error:function(){				
+			}
+		});			
+	});
+
+	function change(all){		
+		
+		 var page=1;
+		 var key={decription:all,
+     			  page:0,
  		};
 		$.ajax({
 			//设置发送地址
@@ -77,22 +127,34 @@
             //编码设置
             contentType:"application/json;charset=utf-8",
             //向后台发送的数据
-            
-           
-            data: JSON.stringify(key),
-            	
-			success:function(
-					data){
-				//json转string
-				
+            data: JSON.stringify(key),           	
+			success:function(data){
+				//json转string			
 				var jsonStr = JSON.stringify(data);
 				//string转json
-				var json = eval("("+jsonStr+")");
-				
-				
+				var json = eval("("+jsonStr+")");								
 				var list=json.loaction;
-				alert(list.length);
-				
+				var ul=document.getElementById("photos");
+				ul.innerHTML="";
+				var i = 0;
+				 for(i = 0;i<list.length;i++)
+				{
+					
+						 //获取到Ul列表
+						
+						 var li = document.createElement("li");
+						 var div = document.createElement("div");
+						 var img = document.createElement("img");
+						//创建元素Li
+						li.className="col-md-4 col-sm-4 col-xs-6 design";
+						div.className="content-image-block";
+						img.src="images/gallery-"+list[i]+".jpg";
+						/* li.innerHTML='<div class="content-image-block"><img src="images/gallery-'+list[i]+'.jpg alt="gallery"></div>' */
+						div.append(img);
+						li.append(div);
+						ul.append(li);
+						/**   */
+				}		 
 			},
 			error:function(){				
 			}
@@ -192,68 +254,15 @@
 				
 
 				<ul id="filters" class="portfolio-categories no-left-padding">
-					<li><a data-filter="*" class="active" value="all" href="javascript:void(0);" onclick="change()">所有图片</a></li>
-					<li><a data-filter=".design" href="#">房间</a></li>
-					<li><a data-filter=".video" href="#">度假村</a></li>
-					<li><a data-filter=".photography" href="#">餐厅</a></li>
-					<li><a data-filter=".web" href="#">健康水疗室</a></li>
+					<li><a data-filter="*" class="active" value="all" href="javascript:void(0);" onclick="change('all')">所有图片</a></li>
+					<li><a data-filter="*" class="active" value="all" href="javascript:void(0);" onclick="change('room')">房间</a></li>
+					<li><a data-filter="*" class="active" value="all" href="javascript:void(0);" onclick="change('Resort')">度假村</a></li>
+					<li><a data-filter="*" class="active" value="all" href="javascript:void(0);" onclick="change('Restaurant')">餐厅</a></li>
+					<li><a data-filter="*" class="active" value="all" href="javascript:void(0);" onclick="change('Other')">其他</a></li>
 				</ul>
 				
 				<ul class="portfolio-list no-left-padding" id="photos">
-					<li class="col-md-4 col-sm-4 col-xs-6 design">
-						<div class="content-image-block">
-							<img src="images/gallery-1.jpg" alt="gallery">
-							<div class="content-block-hover">
-								<a class="zoom" href="images/gallery-1.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.jsp" title="Link"><i class="fa fa-external-link"></i></a>
-							</div>
-						</div>
-					</li>
-					<li class="col-md-4 col-sm-4 col-xs-6 video">
-						<div class="content-image-block">
-							<img src="images/gallery-2.jpg" alt="gallery">
-							<div class="content-block-hover">
-								<a class="zoom" href="images/gallery-2.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.jsp" title="Link"><i class="fa fa-external-link"></i></a>
-							</div>
-						</div>
-					</li>
-					<li class="col-md-4 col-sm-4 col-xs-6 photography">
-						<div class="content-image-block">
-							<img src="images/gallery-3.jpg" alt="gallery">
-							<div class="content-block-hover">
-								<a class="zoom" href="images/gallery-3.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.jsp" title="Link"><i class="fa fa-external-link"></i></a>
-							</div>
-						</div>
-					</li>
-					<li class="col-md-4 col-sm-4 col-xs-6 design">
-						<div class="content-image-block">
-							<img src="images/gallery-4.jpg" alt="gallery">
-							<div class="content-block-hover">
-								<a class="zoom" href="images/gallery-4.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.jsp" title="Link"><i class="fa fa-external-link"></i></a>
-							</div>
-						</div>
-					</li>
-					<li class="col-md-4 col-sm-4 col-xs-6 photography">
-						<div class="content-image-block">
-							<img src="images/gallery-5.jpg" alt="gallery">
-							<div class="content-block-hover">
-								<a class="zoom" href="images/gallery-5.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.jsp" title="Link"><i class="fa fa-external-link"></i></a>
-							</div>
-						</div>
-					</li>
-					<li class="col-md-4 col-sm-4 col-xs-6 web">
-						<div class="content-image-block">
-							<img src="images/gallery-6.jpg" alt="gallery">
-							<div class="content-block-hover">
-								<a class="zoom" href="images/gallery-6.jpg" title="Expand"><i class="fa fa-search"></i></a>
-								<a href="gallery-single.jsp" title="Link"><i class="fa fa-external-link"></i></a>
-							</div>
-						</div>
-					</li>
+					
 				</ul>
 				
 				<nav class="ow-pagination text-center">
