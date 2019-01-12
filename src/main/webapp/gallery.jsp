@@ -1,5 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
@@ -54,6 +56,44 @@
 		<script src="js/html5/respond.min.js"></script>
     <![endif]-->
 	
+	
+<!--  导入js-->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- 写jq函数 -->
+<script type="text/javascript">
+	function change(){		
+		alert(111);
+		$.ajax({
+			//设置发送地址
+			url:"http://localhost:8080/ssm_206_01/searchPhoto",
+			//设置发送方式
+			type:"post",
+			 //设置接收格式为JSON
+            dataType:"json",
+            //编码设置
+            contentType:"application/json;charset=utf-8",
+            //向后台发送的数据
+            data: "all",
+			success:function(data){
+				//json转string
+				var jsonStr = JSON.stringify(data);
+				//string转json
+				var json = eval("("+jsonStr+")");
+				
+				
+				var list=json.loaction;
+				alert(list.length);
+				
+			},
+			error:function(){				
+			}
+		});			
+	}
+</script>	
+	
+
+
+
 </head>
 
 <body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
@@ -140,14 +180,17 @@
 				<div class="section-header">
 					<h3>照片廊</h3>
 				</div><!-- Section Header /- -->
+				
+
 				<ul id="filters" class="portfolio-categories no-left-padding">
-					<li><a data-filter="*" class="active" href="#">所有图片</a></li>
+					<li><a data-filter="*" class="active" value="all" href="javascript:void(0);" onclick="change()">所有图片</a></li>
 					<li><a data-filter=".design" href="#">房间</a></li>
 					<li><a data-filter=".video" href="#">度假村</a></li>
 					<li><a data-filter=".photography" href="#">餐厅</a></li>
 					<li><a data-filter=".web" href="#">健康水疗室</a></li>
 				</ul>
-				<ul class="portfolio-list no-left-padding">
+				
+				<ul class="portfolio-list no-left-padding" id="photos">
 					<li class="col-md-4 col-sm-4 col-xs-6 design">
 						<div class="content-image-block">
 							<img src="images/gallery-1.jpg" alt="gallery">
@@ -203,6 +246,7 @@
 						</div>
 					</li>
 				</ul>
+				
 				<nav class="ow-pagination text-center">
 					<ul class="pagination">
 						<li><a href="#">1</a></li>
