@@ -10,5 +10,5 @@ import com.t2.bean.Room;
 public interface PhotoService {
 	public List<Photo> selectPhotoByAllExample();
 	public List<Photo> selectPhotoByTagExample(String tag);
-	List<String> selectLikeByExample(String key);
+	public List<String> selectLikeByExample(String key,Integer page,Integer size);
 }

@@ -20,7 +20,7 @@ public interface PhotoMapper {
     
 
     
-    List<String> selectLikeByExample(@Param("description")String key);
+    List<String> selectLikeByExample(@Param("description")String key,@Param("page")Integer page,@Param("size")Integer size);
     
     Photo selectByPrimaryKey(Integer id);
 

@@ -63,6 +63,10 @@
 <script type="text/javascript">
 	function change(){		
 		alert(111);
+		 var page=1;
+		 var key={decription:"all",
+     			  page:page,
+ 		};
 		$.ajax({
 			//设置发送地址
 			url:"http://localhost:8080/ssm_206_01/searchPhoto",
@@ -73,9 +77,14 @@
             //编码设置
             contentType:"application/json;charset=utf-8",
             //向后台发送的数据
-            data: "all",
-			success:function(data){
+            
+           
+            data: JSON.stringify(key),
+            	
+			success:function(
+					data){
 				//json转string
+				
 				var jsonStr = JSON.stringify(data);
 				//string转json
 				var json = eval("("+jsonStr+")");

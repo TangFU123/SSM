@@ -67,7 +67,7 @@
     </where>
   </sql>
   <!--//模糊查询  -->
-      <select id="selectLikeByExample" resultType="java.lang.String" >SELECT location FROM photo where description LIKE "%"#{description}"%"</select>
+      <select id="selectLikeByExample" resultType="java.lang.String" >SELECT location FROM photo where description LIKE "%"#{description}"%" limit #{page},#{size}</select>
 
   <sql id="Base_Column_List">
     id, location, log, description, upload

@@ -24,6 +24,8 @@ import com.t2.service.RoomService;
 
 import net.sf.json.JSONObject;
 
+
+
 @Controller
 public class PhotoController extends HttpServlet{
 	@Autowired
@@ -33,9 +35,10 @@ public class PhotoController extends HttpServlet{
 	@RequestMapping("searchPhoto")
 	@ResponseBody
 	public Object search(@RequestBody(required=false) String key){
-		System.out.println(key);
-		
-		List<String> list = photoService.selectLikeByExample(key);
+		//String×ªjson
+		JSONObject json = JSONObject.fromObject(key.toString());
+		System.out.println(json);
+		List<String> list = photoService.selectLikeByExample(json.getString("decription"),json.getInt("page"),1);
 		JSONObject jsonObject = new JSONObject();
 		if(list.size() >= 1) {
 			//System.out.println("ÕËºÅÒÑ´æÔÚ");

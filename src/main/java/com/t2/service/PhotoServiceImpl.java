@@ -16,8 +16,8 @@ public class PhotoServiceImpl implements PhotoService{
 	@Autowired
 	PhotoMapper photoMapper;
 	
-	public List<String> selectLikeByExample(String key){
-		return photoMapper.selectLikeByExample(key);
+	public List<String> selectLikeByExample(String key,Integer page,Integer size){
+		return photoMapper.selectLikeByExample(key,page,size);
 	}
 	
 	public List<Photo> selectPhotoByAllExample() {
